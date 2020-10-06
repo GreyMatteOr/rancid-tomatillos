@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MovieCard from './MovieCard.js';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <main>
         <h1 class='' id='main-title'>Movies</h1>
         <section id='movie-display'>
-          /~movies mini-cards go here~/
+          <MovieCard />
         </section>
       </main>
     </div>
