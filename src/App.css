@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+#movie-display {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px;
+  grid-gap: 11em;
+  justify-content: center;
+  margin-left: -8.5em;
+}
