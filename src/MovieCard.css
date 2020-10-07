@@ -10,7 +10,9 @@
   font-size: 1.5em;
   position: relative;
   bottom: 8.5em;
-  right: 1em;
+  left: .4em;
+  width: 25px;
+  padding: .5em;
   /* border: 1px solid red; */
 }
 
