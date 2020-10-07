@@ -47,9 +47,10 @@ main {
 
 #movie-display {
   display: grid;
-  grid-template-columns: 10em 10em 10em 10em 10em;
-  grid-gap: 8em;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  grid-gap: 5em;
   justify-content: center;
   margin-top: -9em;
-  margin-left: -5.5em;
+  margin-left: 2em;
+  margin-right: 5em;
 }
