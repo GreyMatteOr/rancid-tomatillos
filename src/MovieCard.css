@@ -1,0 +1,24 @@
+.poster-img {
+  width: 15em;
+  margin-bottom: -13em;
+  border: 3px solid black;
+}
+
+.global-rating {
+  color: black;
+  background: white;
+  border: 2px solid black;
+  font-size: 1.5em;
+  position: relative;
+  bottom: 8.5em;
+  left: .1em;
+  width: 25px;
+  padding: .5em;
+  /* border: 1px solid red; */
+}
+
+/* .movie-poster {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-gap: 10px;
+} */
