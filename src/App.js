@@ -1,7 +1,9 @@
 import React from 'react';
 import rtIcon from './tomatillo-icon.png';
-import './App.css';
 import MovieCard from './MovieCard.js';
+import './App.css';
+import './MovieCard.css';
+import './header.css';
 
 function App(props) {
   console.log(props)
@@ -9,13 +11,15 @@ function App(props) {
     <div className="App">
       <header>
         <section>
-          <h1 className='' id='welcome-msg'>Welcome, User!</h1>
-          <button>Log out, ya dingus</button>
+          <button classname='logout-button'>Log out, ya dingus</button>
+          <h1 className='welcome' id='welcome-msg'>Welcome, User!</h1>
         </section>
         <section id='logo'>
-          <img src={rtIcon} alt='The RT Logo'/>
-          <h1 className=''>Rancid Tomatillos</h1>
-          <h3 className=''>'Some clever quote!'</h3>
+          <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
+          <section className='header-text'>
+            <h1 className='site-title'>Rancid Tomatillos</h1>
+            <h3 className='quote'>'Some clever quote!'</h3>
+          </section>
         </section>
         <form>
           <input placeholder='Find a Flick'/>
@@ -24,7 +28,7 @@ function App(props) {
       <main>
         <h1 className='' id='main-title'>Movies</h1>
         <section id='movie-display'>
-          {props.movies.map(movie => <MovieCard key={movie.title} movie={movie}/> )}
+          {props.movies.map(movie => <MovieCard key={movie.title} movie={movie}/>)}
         </section>
       </main>
     </div>
