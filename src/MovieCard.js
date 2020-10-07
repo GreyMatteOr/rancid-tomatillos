@@ -27,5 +27,4 @@ class MovieCard extends React.Component{
 export default MovieCard;
 
 // <h4 classname='movie-title'>{this.state.title}</h4>
-// <h6 className='global-rating'>{this.state.globalRating}</h6>
 // <h6 classsName='user-rating'>00</h6>
