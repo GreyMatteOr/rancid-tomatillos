@@ -10,13 +10,9 @@
   border: 2px solid black;
   font-size: 1.5em;
   position: relative;
-  top: 4.7em;
-  width: 25px;
+  top: 4.6em;
+  width: .7em;
+  height: .8em;
   padding: .5em;
+  padding-bottom: .8em;
 }
-
-/* .movie-poster {
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-gap: 10px;
-} */

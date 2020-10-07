@@ -37,10 +37,19 @@
   }
 }
 
+.main-title {
+
+}
+
+main {
+  margin-bottom: 20em;
+}
+
 #movie-display {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
   grid-gap: 11em;
   justify-content: center;
+  margin-top: -9em;
   margin-left: -8.5em;
 }
