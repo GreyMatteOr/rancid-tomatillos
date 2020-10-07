@@ -16,7 +16,7 @@ class MovieCard extends React.Component{
     return (
       <>
         <div className='poster'>
-          <img className='movie-poster' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
+          <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
           <h6 className='global-rating'>{this.state.globalRating}</h6>
         </div>
       </>
