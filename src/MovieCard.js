@@ -15,13 +15,16 @@ class MovieCard extends React.Component{
   render() {
     return (
       <>
-        <h6>{this.state.globalRating}</h6>
-        <h6>URate</h6>
+        <h6 className='global-rating'>{this.state.globalRating}</h6>
         <img src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
-        <h4>{this.state.title}</h4>
+
       </>
     )
   }
 }
 
 export default MovieCard;
+
+
+// <h4>{this.state.title}</h4>
+// <h6>URate</h6>
