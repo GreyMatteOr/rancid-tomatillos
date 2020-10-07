@@ -8,6 +8,10 @@ form {
   margin: 2em;
 }
 
+.logout-button {
+  margin-top: 3em;
+}
+
 .logo {
   display: flex;
   flex-direction: column;
