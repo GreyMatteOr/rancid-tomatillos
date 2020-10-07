@@ -4,16 +4,21 @@ import './App.css';
 class MovieCard extends React.Component{
   constructor(props) {
     super();
-    this.state = props;
+    let movie = props.movie;
+    this.state = {
+      poster: movie['poster_path'],
+      title: movie['title'],
+      globalRating: movie['average_rating']
+    };
   }
 
   render() {
     return (
       <>
-        <h6>GRate</h6>
+        <h6>{this.state.globalRating}</h6>
         <h6>URate</h6>
-        <img src='' alt='<Movie> Poster'/>
-        <h4>[Movie] Title</h4>
+        <img src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
+        <h4>{this.state.title}</h4>
       </>
     )
   }
