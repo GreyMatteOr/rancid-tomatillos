@@ -1,6 +1,7 @@
 import React from 'react';
 import rtIcon from './tomatillo-icon.png';
 import './App.css';
+import './MovieCard.css';
 import MovieCard from './MovieCard.js';
 
 function App(props) {
@@ -24,7 +25,7 @@ function App(props) {
       <main>
         <h1 className='' id='main-title'>Movies</h1>
         <section id='movie-display'>
-          {props.movies.map(movie => <MovieCard key={movie.title} movie={movie}/> )}
+          {props.movies.map(movie => <MovieCard key={movie.title} movie={movie}/>)}
         </section>
       </main>
     </div>
