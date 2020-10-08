@@ -30,7 +30,12 @@ let request = {
   // },
 
   getMovieData() {
-    return fetch(this.url +'/movies')
+    return fetch(this.url + '/movies')
+      .then(response => response.json());
+  },
+
+  getUserRatings(userID) {
+    return fetch(this.url + `/users/${userID}/ratings`)
       .then(response => response.json());
   }
 }

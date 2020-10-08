@@ -7,8 +7,8 @@ class UserInfo extends React.Component {
     this.state = {
       isLoggedIn: this.props.isLoggedIn || false,
       isRejected: false,
-      userID: this.props.userID || 'email',
-      name: this.props.name || 'Freddie',
+      userID: '',
+      name: '',
       password: '',
       idNumber: null
     }
@@ -46,18 +46,16 @@ class UserInfo extends React.Component {
   logIn(event) {
     event.preventDefault();
     request.attempLogin(this.state.userID, this.state.password)
-    .then(response => {
-      console.log(response);
-      if (response.user.name !== undefined) this.setState({isLoggedIn: true, name: response.user.name});
+    .then(({user}) => {
+      this.setState({isLoggedIn: true, name: user.name});
+      this.props.displayUserRatings(user.id);
     })
     .catch(() => this.setState({isRejected: true}));
   }
 
   logOut(event) {
     event.preventDefault();
-    console.log('Am logging out!!!!');
-    this.setState({isLoggedIn: false});
-    console.log(this.state);
+    this.setState({isLoggedIn: false, isRejected: false});
   }
 }
 
