@@ -1,4 +1,4 @@
-import MovieCard from './MovieCard.js';
+import MovieCard from '../MovieCard/MovieCard.js';
 import React from 'react';
 
 class Main extends React.Component {

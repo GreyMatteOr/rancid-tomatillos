@@ -1,6 +1,6 @@
-import Header from './Header.js';
-import Main from './Main.js';
-import request from './api-requests.js';
+import Header from '../Header/Header.js';
+import Main from '../Main/Main.js';
+import request from '../api-requests.js';
 import React from 'react';
 import './App.css';
 

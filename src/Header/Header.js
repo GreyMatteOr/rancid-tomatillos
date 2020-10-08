@@ -1,7 +1,7 @@
-import Logo from './Logo.js';
-import SearchForm from './SearchForm.js';
+import Logo from '../Logo/Logo.js';
+import SearchForm from '../SearchForm/SearchForm.js';
 import React from 'react';
-import UserInfo from './UserInfo.js';
+import UserInfo from '../UserInfo/UserInfo.js';
 // import './header.css';
 
 class Header extends React.Component {

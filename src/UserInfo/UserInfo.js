@@ -1,5 +1,5 @@
 import React from 'react';
-import request from './api-requests.js';
+import request from '../api-requests.js';
 
 class UserInfo extends React.Component {
   constructor(props) {
