@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
+// import './MovieCard.css';
 
 class MovieCard extends React.Component{
   constructor(props) {
-    super();
-    let movie = props.movie;
+    super(props);
     this.state = {
-      poster: movie['poster_path'],
-      title: movie['title'],
-      globalRating: movie['average_rating']
+      poster: this.props.movie['poster_path'],
+      title: this.props.movie['title'],
+      globalRating: this.props.movie['average_rating']
     };
   }
 

@@ -1,0 +1,22 @@
+import React from 'react';
+import rtIcon from './tomatillo-icon.png';
+
+class Logo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <section id='logo'>
+        <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
+        <section className='header-text'>
+          <h1 className='site-title'>Rancid Tomatillos</h1>
+          <h3 className='quote'>'Some clever quote!'</h3>
+        </section>
+      </section>
+    )
+  }
+}
+
+export default Logo;
