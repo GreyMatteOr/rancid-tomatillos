@@ -1,5 +1,5 @@
+import MovieCard from '../MovieCard/MovieCard.js';
 import React from 'react';
-import MovieCard from './MovieCard.js';
 
 class Main extends React.Component {
   constructor(props) {
