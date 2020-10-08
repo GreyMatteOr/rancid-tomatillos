@@ -2,7 +2,7 @@ import React from 'react';
 import SearchForm from './SearchForm.js';
 import UserInfo from './UserInfo.js';
 import Logo from './Logo.js';
-import './header.css';
+// import './header.css';
 
 class Header extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import './MovieCard.css';
+// import './MovieCard.css';
 
 class MovieCard extends React.Component{
   constructor(props) {
@@ -25,7 +25,6 @@ class MovieCard extends React.Component{
 }
 
 export default MovieCard;
-
 
 // <h4>{this.state.title}</h4>
 // <h6>URate</h6>
