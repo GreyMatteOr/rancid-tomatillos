@@ -18,6 +18,7 @@ class Header extends React.Component {
         <UserInfo
           isLoggedIn={this.state.isLoggedIn}
           displayUserRatings={this.props.displayUserRatings}
+          hideUserRatings={this.props.hideUserRatings}
         />
         <Logo />
         <SearchForm />

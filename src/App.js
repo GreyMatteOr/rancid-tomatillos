@@ -11,18 +11,21 @@ class App extends React.Component{
       movies: this.props.movies,
       isLoggedIn: this.props.isLoggedIn || false
     }
+
     this.displayUserRatings = (userID) => {
       request.getUserRatings(userID)
       .then( ({ratings}) => {
-        console.log(ratings)
         let update = this.state.movies.map( movie => {
           let userRating = ratings.find( rating => rating.movie_id == movie.id ) || 0;
           movie.userRating = userRating;
           return movie;
         });
-        this.setState( {movies: update } )
-        console.log(this.state.movies)
+        this.setState( {movies: update, isLoggedIn: true} )
       });
+    }
+
+    this.hideUserRatings = () => {
+      this.setState( {isLoggedIn: false})
     }
   }
 
@@ -31,6 +34,7 @@ class App extends React.Component{
       <div className="App">
         <Header
           displayUserRatings={this.displayUserRatings}
+          hideUserRatings={this.hideUserRatings}
           isLoggedIn={this.state.isLoggedIn}
         />
         <Main

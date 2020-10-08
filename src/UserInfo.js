@@ -56,6 +56,7 @@ class UserInfo extends React.Component {
   logOut(event) {
     event.preventDefault();
     this.setState({isLoggedIn: false, isRejected: false});
+    this.props.hideUserRatings();
   }
 }
 
