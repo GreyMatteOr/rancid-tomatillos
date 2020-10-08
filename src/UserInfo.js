@@ -6,33 +6,38 @@ class UserInfo extends React.Component {
     super(props);
     this.state = {
       isLoggedIn: this.props.isLoggedIn || false,
-      name: this.props.name || 'Iam Logged'
+      isRejected: false,
+      userID: this.props.userID || 'email',
+      name: this.props.name || 'Freddie',
+      password: '',
+      idNumber: null
     }
   }
 
   render() {
-    return (
-      <section>
-        <button className='logout-button'>Log out, ya dingus</button>
-        <h1 className='welcome' id='welcome-msg'>Welcome, User!</h1>
-      </section>
-    )
-
     if(this.state.isLoggedIn) {
       return (
         <section>
           <button className='logout-button' onClick={event => this.logOut(event)}>Log out, ya dingus</button>
-          <h1 className='userName' id='welcome-msg'>{this.state.name}</h1>
+          <h1 className='userName' id='welcome-msg'>{this.state.userID}</h1>
         </section>
       )
     } else {
       return (
         <form>
           <h2 className='secondary-font'>Please log in!</h2>
-          <input id='userID' type="text" placeholder="user-name" />
-          <input id='pw' type="password" placeholder="password" />
+          <input
+            type="text"
+            placeholder="user id"
+            onChange={ (event) => this.state.userID = event.target.value }
+          />
+          <input
+            type="password"
+            placeholder="password"
+            onChange={ (event) => this.state.password = event.target.value }
+          />
           <button id="submit-credentials" onClick={event => this.logIn(event)}>Submit</button>
-          <h3 id='warning'></h3>
+          <h3 id='warning'>{ this.state.isRejected ? 'TRY AGAIN FOREVER' : '' }</h3>
         </form>
       )
     }
@@ -40,8 +45,12 @@ class UserInfo extends React.Component {
 
   logIn(event) {
     event.preventDefault();
-    console.log('Am logging in!!!');
-    this.setState({isLoggedIn: true});
+    request.attempLogin(this.state.userID, this.state.password)
+    .then(response => {
+      console.log(response);
+      if (response.user.name !== undefined) this.setState({isLoggedIn: true, name: response.user.name});
+    })
+    .catch(() => this.setState({isRejected: true}));
   }
 
   logOut(event) {
