@@ -11,6 +11,13 @@ class UserInfo extends React.Component {
   }
 
   render() {
+    return (
+      <section>
+        <button className='logout-button'>Log out, ya dingus</button>
+        <h1 className='welcome' id='welcome-msg'>Welcome, User!</h1>
+      </section>
+    )
+
     if(this.state.isLoggedIn) {
       return (
         <section>
