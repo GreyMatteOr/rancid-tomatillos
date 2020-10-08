@@ -8,7 +8,7 @@ function App(props) {
   return (
     <div className="App">
       <Header />
-      <Main movies={props.movies}/>
+      <Main movies={props.movies} />
     </div>
   );
 }
