@@ -10,15 +10,9 @@
   border: 2px solid black;
   font-size: 1.5em;
   position: relative;
-  bottom: 9em;
-  left: .1em;
-  width: 25px;
+  top: 4.6em;
+  width: .7em;
+  height: .8em;
   padding: .5em;
-  /* border: 1px solid red; */
+  padding-bottom: .8em;
 }
-
-/* .movie-poster {
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-gap: 10px;
-} */
