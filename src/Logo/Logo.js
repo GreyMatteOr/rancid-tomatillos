@@ -1,5 +1,5 @@
 import React from 'react';
-import rtIcon from './tomatillo-icon.png';
+import rtIcon from './rancidtomatillos.png';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -9,9 +9,8 @@ class Logo extends React.Component {
   render() {
     return (
       <section id='logo'>
-        <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
+        <img className='logo-pic' src={rtIcon} alt='Rancid Tomatillos Logo & Title'/>
         <section className='header-text'>
-          <h1 className='site-title'>Rancid Tomatillos</h1>
           <h3 className='quote'>'Some clever quote!'</h3>
         </section>
       </section>

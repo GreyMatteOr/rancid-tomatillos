@@ -33,3 +33,8 @@ form {
 .welcome {
   margin: 2em;
 }
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+}
