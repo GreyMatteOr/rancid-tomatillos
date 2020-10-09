@@ -14,7 +14,14 @@ class Main extends React.Component {
       <main>
         <h1 className='main-title' id='main-title'>Movies</h1>
         <section id='movie-display'>
-          {this.state.movies.map(movie => <MovieCard key={movie.title} movie={movie}/>)}
+          {this.state.movies.map(movie => {
+            return <MovieCard
+                    key={movie.title}
+                    movie={movie}
+                    isLoggedIn={this.props.isLoggedIn}
+                    />
+            })
+          }
         </section>
       </main>
     )

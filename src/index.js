@@ -7,7 +7,7 @@ import request from './api-requests.js';
 
 let movies = [];
 
-request.getMovieData()
+request.getMoviesData()
   .then(data => movies = data.movies)
   .then( () => {
     ReactDOM.render(
