@@ -16,29 +16,28 @@ class MovieCard extends React.Component{
   }
 
   render() {
-    if(!this.state.popOut) {
-      return (
-        <>
-          <div className='poster' onClick={ () => this.setState({popOut: true}) }>
-            <h6 className='global-rating'>{this.state.globalRating}</h6>
-            <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
-          </div>
-        </>
-      )
-    } else {
-      return (
-        <>
-          <div className='overlay' onClick={ () => this.setState( {popOut: null} ) }></div>
-          <MovieModal
-            movieID={ this.state.movieID }
-            userRating={ this.props.userRating }
-            isLoggedIn={ this.props.isLoggedIn }
-          />
-        </>
-      )
-    }
+    console.log(this.state.popOut)
+    return (
+      <>
+        {this.state.popOut
+            ? <div className='overlay' onClick={ () => this.setState( {popOut: null} ) }>
+              <MovieModal
+                movieID={ this.state.movieID }
+                userRating={ this.props.userRating }
+                isLoggedIn={ this.props.isLoggedIn }
+              />
+              </div>
+            : ''
+        }
+        <div className='poster' onClick={ () => this.setState({popOut: true}) }>
+          <h6 className='global-rating'>{this.state.globalRating}</h6>
+          <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
+        </div>
+      </>
+    )
   }
 }
+
 
 export default MovieCard;
 
