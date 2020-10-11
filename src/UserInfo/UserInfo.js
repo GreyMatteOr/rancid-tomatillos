@@ -27,26 +27,35 @@ class UserInfo extends React.Component {
         <form>
           <h2 className='secondary-font'>Please log in!</h2>
           <input
+            className="username"
             type="text"
             placeholder="user id"
             onChange={ (event) => this.state.userID = event.target.value }
           />
           <input
+            className="password"
             type="password"
             placeholder="password"
             onChange={ (event) => this.state.password = event.target.value }
           />
-          <button id="submit-credentials" onClick={event => this.logIn(event)}>Submit</button>
+          <button className="submit-credentials" id="submit-credentials" onClick={event => this.logIn(event, this.props.debug)}>Submit</button>
           <h3 id='warning'>{ this.state.isRejected ? 'TRY AGAIN FOREVER' : '' }</h3>
         </form>
       )
     }
   }
 
-  logIn(event) {
+  logIn(event, debug = false) {
+    console.log(debug)
     event.preventDefault();
+    if (debug) {
+      console.log(debug)
+      this.setState({isLoggedIn : true, name: 'debug'})
+      return
+    }
     request.attempLogin(this.state.userID, this.state.password)
     .then(({user}) => {
+      console.log('wheres my skin')
       this.setState({isLoggedIn: true, name: user.name});
       this.props.displayUserRatings(user.id);
     })
