@@ -2,11 +2,33 @@
 .modal {
   position: relative;
   z-index: 3;
-  margin: 2em;
+  margin: auto;
   padding: 1em;
   background: white;
   height: auto;
   width: 90%;
+  height: 90%;
   border-radius: 1.5em;
   box-shadow: black 3px 3px 3px;
+}
+
+.text-display {
+  height: 30em;
+  box-shadow: black 3px 3px 3px;
+  border-radius: 1.5em;
+  transition: all 1.2s;
+  opacity: 0;
+  background-color: rgba(220, 220, 220, 0.8);
+  padding: 1em;
+  text-align: left;
+}
+
+.done-loading {
+  transition: all 1.2s;
+  opacity: 1;
+  align-content: center;
+}
+
+.hidden {
+  opacity: 0;
 }

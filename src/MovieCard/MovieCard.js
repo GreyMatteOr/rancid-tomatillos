@@ -23,7 +23,7 @@ class MovieCard extends React.Component{
             ? <div className='overlay' onClick={ () => this.setState( {popOut: null} ) }>
               <MovieModal
                 movieID={ this.state.movieID }
-                userRating={ this.props.userRating }
+                userRating={ this.props.movie.userRating }
                 isLoggedIn={ this.props.isLoggedIn }
               />
               </div>
