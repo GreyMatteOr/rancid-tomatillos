@@ -8,7 +8,7 @@ class Logo extends React.Component {
 
   render() {
     return (
-      <section id='logo'>
+      <section role='logo'>
         <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
         <section className='header-text'>
           <h1 className='site-title'>Rancid Tomatillos</h1>

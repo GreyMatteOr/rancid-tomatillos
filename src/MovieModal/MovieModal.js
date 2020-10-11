@@ -5,7 +5,6 @@ import './MovieModal.css';
 class MovieModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       movieID: this.props.movieID,
       userRating: this.props.userRating,
@@ -25,10 +24,10 @@ class MovieModal extends React.Component {
   }
 
   render() {
-    console.log(this.state.isLoading);
     return (
       <div
         className='modal'
+        role='movie-modal'
         style={{
           backgroundImage: 'url('+this.state.backdrop_path+')',
           backgroundSize: "100% auto"

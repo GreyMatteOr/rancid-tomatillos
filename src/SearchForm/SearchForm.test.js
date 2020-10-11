@@ -1,9 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import SearchForm from './SearchForm.js';
 
 describe( 'SearchForm', () => {
-  it( 'should', () =>{
-    expect(true).toEqual(true);
+  it( 'should display a search input', () =>{
+    render(<SearchForm />);
+    expect(screen.getByPlaceholderText('Find a Flick')).toBeInTheDocument();
   });
 });
