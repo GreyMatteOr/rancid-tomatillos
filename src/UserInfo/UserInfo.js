@@ -18,7 +18,7 @@ class UserInfo extends React.Component {
     if(this.state.isLoggedIn) {
       return (
         <section>
-          <button className='logout-button' onClick={event => this.logOut(event)}>Log out, ya dingus</button>
+          <button className='logout-button' onClick={event => this.logOut(event)}>Log out, ya dingus!</button>
           <h1 className='userName' id='welcome-msg'>{this.state.userID}</h1>
         </section>
       )
@@ -49,13 +49,11 @@ class UserInfo extends React.Component {
     console.log(debug)
     event.preventDefault();
     if (debug) {
-      console.log(debug)
       this.setState({isLoggedIn : true, name: 'debug'})
       return
     }
     request.attempLogin(this.state.userID, this.state.password)
     .then(({user}) => {
-      console.log('wheres my skin')
       this.setState({isLoggedIn: true, name: user.name});
       this.props.displayUserRatings(user.id);
     })

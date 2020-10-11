@@ -13,18 +13,36 @@ import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
 describe( 'App', () => {
-  it( 'should be able to login a user', () => {
+
+  it('should be able to login a user', () => {
     let movies =[];
+
     render(<App movies={movies} debug={true}/>);
 
     userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
     userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
     expect(screen.getByRole('heading', { name: 'tinsel@turing.io' }))
-
-
-
   })
+
+  it('should be able to logout a user', () => {
+    let movies =[];
+
+    render(<App movies={movies} debug={true}/>);
+
+    userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
+    userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
+    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+    userEvent.click(screen.getByRole('button', {name: 'Log out, ya dingus!'}))
+
+    expect(screen.getByRole('heading', { name: 'Please log in!' }))
+  })
+
+  // it('should give an error for incorrect login credentials', () => {
+  // 
+  //
+  // })
 
 
 //when loads, email and pass input
