@@ -34,7 +34,7 @@ describe( 'App', () => {
     userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
     userEvent.click(screen.getByRole('button', { name: 'Submit' }));
-    userEvent.click(screen.getByRole('button', {name: 'Log out, ya dingus!'}))
+    userEvent.click(screen.getByRole('button', {name: 'Log out'}))
 
     expect(screen.getByRole('heading', { name: 'Please log in!' }))
   })

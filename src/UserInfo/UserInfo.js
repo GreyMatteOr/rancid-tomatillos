@@ -19,7 +19,7 @@ class UserInfo extends React.Component {
       return (
         <section>
           <button className='logout-button' onClick={event => this.logOut(event)}>Log out</button>
-          <h1 className='userName' id='welcome-msg'>{this.state.userID}</h1>
+          <h1 className='userName' id='welcome-msg'>Welcome, {this.state.userID}</h1>
         </section>
       )
     } else {

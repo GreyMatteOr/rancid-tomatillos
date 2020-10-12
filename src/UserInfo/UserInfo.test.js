@@ -18,10 +18,7 @@ describe( 'UserInfo', () => {
   it('should allow for a user to log out', () => {
     render(<UserInfo isLoggedIn={true}/>);
 
-    expect(screen.getByRole('button', {name: 'Log out, ya dingus!'})).toBeInTheDocument();
+    expect(screen.getByRole('button', {name: 'Log out'})).toBeInTheDocument();
     expect(screen.getByRole('heading', {name: 'Welcome,'})).toBeInTheDocument();
   })
-
-
-
 });
