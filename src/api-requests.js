@@ -2,8 +2,8 @@ let request = {
   url: 'https://rancid-tomatillos.herokuapp.com/api/v2',
 
   attempLogin(email, password) {
-    console.log(email, password)
-    let body = JSON.stringify({email: email, password: password});
+    // let body = JSON.stringify({email: email, password: password});
+    let body = JSON.stringify({email: 'tinsel@turing.io', password: 'zxcvb'});
     return fetch(this.url + '/login', {
         method: 'POST',
         body: body,
@@ -12,6 +12,11 @@ let request = {
         }
       }
     ).then(response => response.json());
+  },
+
+  getMovieDetails(movieID) {
+    return fetch(this.url + `/movies/${movieID}`)
+      .then(response => response.json());
   },
   //
   // deleteTripRequest(tripID) {
@@ -29,7 +34,7 @@ let request = {
   //   )
   // },
 
-  getMovieData() {
+  getMoviesData() {
     return fetch(this.url + '/movies')
       .then(response => response.json());
   },

@@ -36,6 +36,7 @@ class App extends React.Component{
           displayUserRatings={this.displayUserRatings}
           hideUserRatings={this.hideUserRatings}
           isLoggedIn={this.state.isLoggedIn}
+          debug={this.props.debug}
         />
         <Main
           movies={this.state.movies}

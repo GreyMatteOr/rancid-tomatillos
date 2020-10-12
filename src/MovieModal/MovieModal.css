@@ -1,0 +1,12 @@
+
+.modal {
+  position: relative;
+  z-index: 3;
+  margin: 2em;
+  padding: 1em;
+  background: white;
+  height: auto;
+  width: 90%;
+  border-radius: 1.5em;
+  box-shadow: black 3px 3px 3px;
+}
