@@ -23,7 +23,7 @@ describe( 'App', () => {
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
     userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-    expect(screen.getByRole('heading', { name: 'tinsel@turing.io' }))
+    expect(screen.getByRole('heading', { name: 'Welcome, tinsel@turing.io' }))
   })
 
   it('should be able to logout a user', () => {

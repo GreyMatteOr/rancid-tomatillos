@@ -7,21 +7,21 @@ import request from '../api-requests.js';
 describe( 'UserInfo', () => {
 
   it('should allow for a user to log in', () => {
-    let movies =[];
     render(<UserInfo />);
 
-
+    expect(screen.getByText('Please log in!')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('user id')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('password')).toBeInTheDocument();
+    expect(screen.getByRole('button', {name: 'Submit'})).toBeInTheDocument();
   })
 
-  // it ('should allow for a user to log out', () => {
-  //   let movies =[];
-  //   render(<App movies={movies} debug={true}/>);
-  //
-  //   userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
-  //   userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
-  //   userEvent.click(screen.getByRole('button', { name: 'Submit' }));
-  //
-  //   expect(screen.getByRole('header', { name: 'tinsel@turing.io' }))
-  // })
+  it('should allow for a user to log out', () => {
+    render(<UserInfo isLoggedIn={true}/>);
+
+    expect(screen.getByRole('button', {name: 'Log out, ya dingus!'})).toBeInTheDocument();
+    expect(screen.getByRole('heading', {name: 'Welcome,'})).toBeInTheDocument();
+  })
+
+
 
 });
