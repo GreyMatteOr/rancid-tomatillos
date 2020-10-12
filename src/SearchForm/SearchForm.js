@@ -7,7 +7,7 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form role='search-form'>
         <input placeholder='Find a Flick'/>
       </form>
     )
