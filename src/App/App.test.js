@@ -40,7 +40,7 @@ describe( 'App', () => {
   })
 
   // it('should give an error for incorrect login credentials', () => {
-  // 
+  //
   //
   // })
 
