@@ -1,6 +1,7 @@
 
 .modal {
   position: relative;
+  top: 1em;
   z-index: 3;
   margin: auto;
   padding: 1em;
@@ -27,6 +28,14 @@
   transition: all 1.2s;
   opacity: 1;
   align-content: center;
+}
+
+.exit {
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  height: 1.5em;
+  width: auto;
 }
 
 .hidden {

@@ -48,12 +48,17 @@ class UserInfo extends React.Component {
   }
 
   logIn(event) {
+    event.preventDefault();
+    console.log(this.state.attemptLogin)
     this.state.attemptLogin(this.state.userID, this.state.password)
     .then(({user}) => {
       this.setState({isLoggedIn: true, name: user.name});
       this.props.displayUserRatings(user.id);
     })
-    .catch(() => this.setState({isRejected: true}));
+    .catch((res) => {
+      this.setState({isRejected: true})
+      console.log('whoa',res)
+    });
   }
 
   logOut(event) {

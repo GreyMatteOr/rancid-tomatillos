@@ -17,6 +17,11 @@ let request = {
     return fetch(this.url + `/movies/${movieID}`)
       .then(response => response.json());
   },
+
+  getMovieVideos(movieID) {
+    return fetch(this.url + `/movies/${movieID}/videos`)
+      .then(response => response.json());
+  },
   //
   // deleteTripRequest(tripID) {
   //   let data = {
@@ -45,5 +50,3 @@ let request = {
 }
 
 export default request;
-
-//https://www.youtube.com/watch?v=SUXWAEX2jlg
