@@ -1,7 +1,6 @@
 let request = {
   url: 'https://rancid-tomatillos.herokuapp.com/api/v2',
-
-  attempLogin(email, password) {
+  attemptLogin(email, password) {
     // let body = JSON.stringify({email: email, password: password});
     let body = JSON.stringify({email: 'tinsel@turing.io', password: 'zxcvb'});
     return fetch(this.url + '/login', {
@@ -46,3 +45,5 @@ let request = {
 }
 
 export default request;
+
+//https://www.youtube.com/watch?v=SUXWAEX2jlg
