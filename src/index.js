@@ -5,9 +5,11 @@ import App from '../src/App/App.js';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import request from './api-requests.js';
+import { BrowserRouter } from 'react-router-dom';
 
 let movies = [];
 
+const router = <BrowserRouter> <App movies={movies}/> </BrowserRouter>;
 request.getMoviesData()
   .then(data => movies = data.movies)
   .then( () => {
@@ -17,9 +19,11 @@ request.getMoviesData()
           <App movies={movies}/>
         </React.StrictMode>
       </Router>,
+      
       document.getElementById('root')
     );
   });
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

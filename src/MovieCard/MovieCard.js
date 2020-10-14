@@ -36,6 +36,13 @@ class MovieCard extends React.Component{
       </>
     )
   }
+  //gotta unnest the modal window and put it in app.js for rendering
+  //dynamic routing!!!! happens when move stuff to app.js
+  //wrap the movie-card in a <Link> </Link> tag!! removes the need for onClick stuff
+  //link changes the path!!!
+  //when path gets changed to specific thing, render the component.
+  //popOut thingy, don't need it anymore
+  //tie link to xbutton, OR use a tag called redirect. prolly use link cause we're clicking -> to home or '/' path
 
   roundToTenth(number) {
     return Math.round(number * 10) / 10;

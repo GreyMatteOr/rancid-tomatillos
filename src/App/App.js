@@ -3,6 +3,7 @@ import Main from '../Main/Main.js';
 import request from '../api-requests.js';
 import React from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 class App extends React.Component{
   constructor(props) {
@@ -32,15 +33,15 @@ class App extends React.Component{
   render () {
     return (
       <div className="App">
-        <Header
+        <Route path='/' render={ () => <Header
           displayUserRatings={this.displayUserRatings}
           hideUserRatings={this.hideUserRatings}
           isLoggedIn={this.state.isLoggedIn}
-        />
-        <Main
+        />} />
+        <Route path='/' render={ () => <Main
           movies={this.state.movies}
           isLoggedIn={this.state.isLoggedIn}
-        />
+        />} />
       </div>
     );
   }
