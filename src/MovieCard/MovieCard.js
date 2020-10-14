@@ -25,6 +25,7 @@ class MovieCard extends React.Component{
                 userRating={ this.props.movie.userRating }
                 isLoggedIn={ this.props.isLoggedIn }
                 close={ () => this.setState( {popOut: null} ) }
+                userID={this.props.userID}
               />
               </div>
             : ''

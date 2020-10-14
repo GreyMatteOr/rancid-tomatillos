@@ -20,12 +20,12 @@ class App extends React.Component{
           movie.userRating = userRating;
           return movie;
         });
-        this.setState( {movies: update, isLoggedIn: true} )
+        this.setState( {movies: update, isLoggedIn: true, userID: userID} )
       });
     }
 
     this.hideUserRatings = () => {
-      this.setState( {isLoggedIn: false})
+      this.setState( {isLoggedIn: false, userID: null})
     }
   }
 
@@ -40,6 +40,7 @@ class App extends React.Component{
         <Main
           movies={this.state.movies}
           isLoggedIn={this.state.isLoggedIn}
+          userID={this.state.userID}
         />
       </div>
     );
