@@ -1,7 +1,6 @@
 let request = {
   url: 'https://rancid-tomatillos.herokuapp.com/api/v2',
-
-  attempLogin(email, password) {
+  attemptLogin(email, password) {
     // let body = JSON.stringify({email: email, password: password});
     let body = JSON.stringify({email: 'tinsel@turing.io', password: 'zxcvb'});
     return fetch(this.url + '/login', {
@@ -16,6 +15,11 @@ let request = {
 
   getMovieDetails(movieID) {
     return fetch(this.url + `/movies/${movieID}`)
+      .then(response => response.json());
+  },
+
+  getMovieVideos(movieID) {
+    return fetch(this.url + `/movies/${movieID}/videos`)
       .then(response => response.json());
   },
   //

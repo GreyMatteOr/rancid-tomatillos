@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from '../src/App/App.js';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import request from './api-requests.js';
 
@@ -11,9 +12,11 @@ request.getMoviesData()
   .then(data => movies = data.movies)
   .then( () => {
     ReactDOM.render(
-      <React.StrictMode>
-        <App movies={movies}/>
-      </React.StrictMode>,
+      <Router>
+        <React.StrictMode>
+          <App movies={movies}/>
+        </React.StrictMode>
+      </Router>,
       document.getElementById('root')
     );
   });

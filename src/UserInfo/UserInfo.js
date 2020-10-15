@@ -1,5 +1,6 @@
 import React from 'react';
 import request from '../api-requests.js';
+let { attemptLogin } = request;
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class UserInfo extends React.Component {
       userID: '',
       name: '',
       password: '',
-      idNumber: null
+      attemptLogin: this.props.attemptLogin || attemptLogin,
+      idNumber: null,
     }
   }
 
@@ -19,7 +21,7 @@ class UserInfo extends React.Component {
       return (
         <section>
           <button className='logout-button' onClick={event => this.logOut(event)}>Log out</button>
-          <h1 className='userName' id='welcome-msg'>{this.state.userID}</h1>
+          <h1 className='userName' id='welcome-msg'>Welcome, {this.state.name}</h1>
         </section>
       )
     } else {
@@ -38,25 +40,25 @@ class UserInfo extends React.Component {
             placeholder="password"
             onChange={ (event) => this.state.password = event.target.value }
           />
-          <button className="submit-credentials" id="submit-credentials" onClick={event => this.logIn(event, this.props.debug)}>Submit</button>
+          <button className="submit-credentials" id="submit-credentials" onClick={event => this.logIn(event)} submit=''>Submit</button>
           <h3 id='warning'>{ this.state.isRejected ? 'TRY AGAIN FOREVER' : '' }</h3>
         </form>
       )
     }
   }
 
-  logIn(event, debug = false) {
+  logIn(event) {
     event.preventDefault();
-    if (debug) {
-      this.setState({isLoggedIn : true, name: 'debug'})
-      return
-    }
-    request.attempLogin(this.state.userID, this.state.password)
+    console.log(this.state.attemptLogin)
+    this.state.attemptLogin(this.state.userID, this.state.password)
     .then(({user}) => {
       this.setState({isLoggedIn: true, name: user.name});
       this.props.displayUserRatings(user.id);
     })
-    .catch(() => this.setState({isRejected: true}));
+    .catch((res) => {
+      this.setState({isRejected: true})
+      console.log('whoa',res)
+    });
   }
 
   logOut(event) {

@@ -1,6 +1,8 @@
 import React from 'react';
 import request from '../api-requests.js';
+import MovieVideos from '../MovieVideos/MovieVideos.js';
 import './MovieModal.css';
+import xToClose from './x-to-close.png';
 
 class MovieModal extends React.Component {
   constructor(props) {
@@ -9,18 +11,18 @@ class MovieModal extends React.Component {
       movieID: this.props.movieID,
       userRating: this.props.userRating,
       isLoggedIn: this.props.isLoggedIn,
-      isLoading: true
+      isLoading: true,
+      close: this.props.close
     };
   }
 
   componentDidMount() {
     request.getMovieDetails(this.state.movieID)
       .then( ({movie}) => {
-        console.log(movie)
         movie.isLoading = false;
         this.setState(movie);
       })
-      .catch( () => console.log('OH NO'));
+      .catch( err => console.log(err));
   }
 
   render() {
@@ -33,6 +35,7 @@ class MovieModal extends React.Component {
           backgroundSize: "100% auto"
         }}
       >
+        <img className='exit' src={xToClose} alt='close the pop out' onClick={this.state.close}/>
         <h3 className={this.state.isLoading ? '.done-loading' : '.done-loading hidden'}>LOADING</h3>
         <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'}>
           <h3 className='global-rating-modal'>Average Rating: {this.state.average_rating}</h3>
@@ -48,6 +51,7 @@ class MovieModal extends React.Component {
           <h3 className='revenue'>Revenue: {this.state.revenue}</h3>
           <h3 className='runtime'>Runtime: {this.state.runtime}</h3>
         </section>
+        <MovieVideos movieID={this.state.movieID}/>
       </div>
     );
   }

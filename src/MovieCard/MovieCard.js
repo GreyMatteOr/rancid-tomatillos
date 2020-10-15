@@ -9,7 +9,7 @@ class MovieCard extends React.Component{
     this.state = {
       poster: this.props.movie['poster_path'],
       title: this.props.movie['title'],
-      globalRating: this.props.movie['average_rating'],
+      globalRating: this.roundToTenth(this.props.movie['average_rating']),
       movieID: this.props.movie['id'],
       popOut: false
     };
@@ -19,11 +19,12 @@ class MovieCard extends React.Component{
     return (
       <>
         {this.state.popOut
-            ? <div className='overlay' role='overlay' onClick={ () => this.setState( {popOut: null} ) }>
+            ? <div className='overlay' role='overlay'>
               <MovieModal
                 movieID={ this.state.movieID }
                 userRating={ this.props.movie.userRating }
                 isLoggedIn={ this.props.isLoggedIn }
+                close={ () => this.setState( {popOut: null} ) }
               />
               </div>
             : ''
@@ -35,10 +36,11 @@ class MovieCard extends React.Component{
       </>
     )
   }
+
+  roundToTenth(number) {
+    return Math.round(number * 10) / 10;
+  }
 }
 
 
 export default MovieCard;
-
-// <h4>{this.state.title}</h4>
-// <h6>URate</h6>
