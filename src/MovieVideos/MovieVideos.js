@@ -15,7 +15,6 @@ class MovieVideos extends React.Component {
   componentDidMount() {
     request.getMovieVideos(this.state.movieID)
       .then( (videos) => {
-        console.log(videos)
         videos.isLoading = false;
         this.setState(videos);
       })

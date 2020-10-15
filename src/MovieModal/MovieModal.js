@@ -1,6 +1,7 @@
 import React from 'react';
 import request from '../api-requests.js';
 import MovieVideos from '../MovieVideos/MovieVideos.js';
+import UserRating from '../UserRating/UserRating.js';
 import './MovieModal.css';
 import xToClose from './x-to-close.png';
 
@@ -39,9 +40,12 @@ class MovieModal extends React.Component {
         // <img className='exit' src={xToClose} alt='close the pop out' onClick={this.state.close}/>
         <h3 className={this.state.isLoading ? '.done-loading' : '.done-loading hidden'}>LOADING</h3>
         <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'}>
-          <h3 className='global-rating-modal'>Average Rating: {this.state.average_rating}</h3>
+          <h3 className='global-rating-modal'>Average Rating: {this.roundToTenth(this.state.average_rating)}</h3>
           {(this.state.isLoggedIn
-            ? <h3 className='user-rating'>User Rating: {this.state.userRating}</h3>
+            ? <UserRating
+              rating={this.state.userRating}
+              movieID={this.state.movieID}
+              userID={this.state.userID} />
             : <></>
           )}
           <h3 className='title'>Title: { this.state.title }</h3>
@@ -55,6 +59,10 @@ class MovieModal extends React.Component {
         <MovieVideos movieID={this.state.movieID}/>
       </div>
     );
+  }
+
+  roundToTenth(number) {
+    return Math.round(number * 10) / 10;
   }
 }
 

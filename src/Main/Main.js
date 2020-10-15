@@ -21,6 +21,7 @@ class Main extends React.Component {
                     key={movie.title}
                     movie={movie}
                     isLoggedIn={this.props.isLoggedIn}
+                    userID={this.props.userID}
                     />
             })
           }
