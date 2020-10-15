@@ -1,5 +1,5 @@
 import React from 'react';
-import rtIcon from './tomatillo-icon.png';
+import rtIcon from './rancidtomatillos.png';
 
 class Logo extends React.Component {
   constructor(props) {
