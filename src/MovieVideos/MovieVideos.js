@@ -5,6 +5,7 @@ import './MovieVideos.css';
 class MovieVideos extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props)
     this.state = {
       isLoading: true,
       movieID: this.props.movieID
@@ -14,7 +15,6 @@ class MovieVideos extends React.Component {
   componentDidMount() {
     request.getMovieVideos(this.state.movieID)
       .then( (videos) => {
-        console.log(videos)
         videos.isLoading = false;
         this.setState(videos);
       })
@@ -51,5 +51,5 @@ class MovieVideos extends React.Component {
 }
 
 export default MovieVideos;
-
+//movie id isnt being passed properly into the fetch cause of Reasons?????
 //https://www.youtube.com/watch?v=SUXWAEX2jlg

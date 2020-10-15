@@ -49,7 +49,6 @@ class UserInfo extends React.Component {
 
   logIn(event) {
     event.preventDefault();
-    console.log(this.state.attemptLogin)
     this.state.attemptLogin(this.state.userID, this.state.password)
     .then(({user}) => {
       this.setState({isLoggedIn: true, name: user.name});

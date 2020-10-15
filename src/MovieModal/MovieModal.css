@@ -1,6 +1,6 @@
 
 .modal {
-  position: relative;
+  position: fixed;
   top: 1em;
   z-index: 3;
   margin: auto;
