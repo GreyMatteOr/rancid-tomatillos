@@ -30,7 +30,7 @@ class MovieVideos extends React.Component {
           role='movie-videos'
         >
           {this.state.videos.map(video => {
-            return <>
+            return <div className='video'>
               <h3>{video.type}</h3>
               <iframe
                 width="356"
@@ -41,7 +41,7 @@ class MovieVideos extends React.Component {
                 allowFullScreen
               >
               </iframe>
-            </>
+            </div>
           })}
         </div>
       );

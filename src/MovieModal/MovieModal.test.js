@@ -16,6 +16,7 @@ describe( 'MovieModal', () => {
     expect(screen.getByText('Budget:')).toBeInTheDocument();
     expect(screen.getByText('Revenue:')).toBeInTheDocument();
     expect(screen.getByText('Runtime:')).toBeInTheDocument();
+    expect(screen.getByRole('movie-videos')).toBeInTheDocument();
   });
 
   it( 'should display a User Rating when logged in', () => {
@@ -23,4 +24,10 @@ describe( 'MovieModal', () => {
 
     expect(screen.getByText('User Rating:')).toBeInTheDocument();
   });
+
+  it( 'should navigate to the home page when the user hits the `x` button', () => {
+    render(<MovieModal />);
+
+
+  })
 });
