@@ -1,6 +1,6 @@
 import React from 'react';
 import request from '../api-requests.js';
-// import './MovieVideos.css';
+import './MovieVideos.css';
 
 class MovieVideos extends React.Component {
   constructor(props) {
@@ -27,11 +27,11 @@ class MovieVideos extends React.Component {
     } else {
       return (
         <div
-          className='videos'
+          className='videos-grid'
           role='movie-videos'
         >
           {this.state.videos.map(video => {
-            return <>
+            return <div className='video'>
               <h3>{video.type}</h3>
               <iframe
                 width="356"
@@ -42,7 +42,7 @@ class MovieVideos extends React.Component {
                 allowFullScreen
               >
               </iframe>
-            </>
+            </div>
           })}
         </div>
       );
