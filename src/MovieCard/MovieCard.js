@@ -2,6 +2,8 @@ import React from 'react';
 import '../App/App.css';
 import './MovieCard.css';
 import MovieModal from '../MovieModal/MovieModal.js'
+import { Route, Link } from 'react-router-dom';
+
 
 class MovieCard extends React.Component{
   constructor(props) {
@@ -11,28 +13,19 @@ class MovieCard extends React.Component{
       title: this.props.movie['title'],
       globalRating: this.roundToTenth(this.props.movie['average_rating']),
       movieID: this.props.movie['id'],
-      popOut: false
+      // popOut: false
     };
   }
 
   render() {
     return (
       <>
-        {this.state.popOut
-            ? <div className='overlay' role='overlay'>
-              <MovieModal
-                movieID={ this.state.movieID }
-                userRating={ this.props.movie.userRating }
-                isLoggedIn={ this.props.isLoggedIn }
-                close={ () => this.setState( {popOut: null} ) }
-              />
-              </div>
-            : ''
-        }
-        <div className='poster' role='movie-card' onClick={ () => this.setState({popOut: true}) }>
-          <h6 className='global-rating'>{this.state.globalRating}</h6>
-          <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
-        </div>
+        <Link to={`/movieDetails/${this.state.movieID}`}>
+          <div className='poster' role='movie-card' onClick={ () => this.setState({popOut: true}) }>
+            <h6 className='global-rating'>{this.state.globalRating}</h6>
+            <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
+          </div>
+        </Link>
       </>
     )
   }

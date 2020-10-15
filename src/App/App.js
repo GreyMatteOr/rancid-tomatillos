@@ -1,5 +1,7 @@
 import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
+import MovieModal from '../MovieModal/MovieModal.js';
+import MovieVideos from '../MovieVideos/MovieVideos.js';
 import request from '../api-requests.js';
 import React from 'react';
 import './App.css';
@@ -42,9 +44,15 @@ class App extends React.Component{
           movies={this.state.movies}
           isLoggedIn={this.state.isLoggedIn}
         />} />
+        <Route exact path='/movieDetails/:id'
+        render={({ match }) => {
+          const { id } = match.params;
+          const movie = this.state.movies.find(movie => movie.id === parseInt(id));
+          return <MovieModal movieID={movie.id} userRating={this.state.userRating} isLoggedIn={this.state.isLoggedIn} /> }} />
       </div>
     );
   }
 }
+
 
 export default App;
