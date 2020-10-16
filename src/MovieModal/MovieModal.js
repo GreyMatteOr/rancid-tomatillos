@@ -2,13 +2,13 @@ import React from 'react';
 import request from '../api-requests.js';
 import MovieVideos from '../MovieVideos/MovieVideos.js';
 import UserRating from '../UserRating/UserRating.js';
+import { Link } from 'react-router-dom';
 import './MovieModal.css';
 import xToClose from './x-to-close.png';
 
 class MovieModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.state = {
       movieID: this.props.movieID,
       userRating: this.props.userRating,
@@ -37,7 +37,9 @@ class MovieModal extends React.Component {
           backgroundSize: "100% auto"
         }}
       >
-        // <img className='exit' src={xToClose} alt='close the pop out' onClick={this.state.close}/>
+        <Link to={`/`}>
+          <img className='exit' src={xToClose} role='close-modal' alt='close the pop out display' />
+        </Link>
         <h3 className={this.state.isLoading ? '.done-loading' : '.done-loading hidden'}>LOADING</h3>
         <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'}>
           <h3 className='global-rating-modal'>Average Rating: {this.roundToTenth(this.state.average_rating)}</h3>

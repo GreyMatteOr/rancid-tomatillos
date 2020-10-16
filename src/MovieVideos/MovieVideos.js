@@ -5,7 +5,6 @@ import './MovieVideos.css';
 class MovieVideos extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.state = {
       isLoading: true,
       movieID: this.props.movieID
@@ -23,7 +22,7 @@ class MovieVideos extends React.Component {
 
   render() {
     if( this.state.isLoading ) {
-      return <h3>LOADING</h3>
+      return <h3>loading</h3>
     } else {
       return (
         <div
