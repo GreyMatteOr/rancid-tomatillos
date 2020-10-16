@@ -56,7 +56,6 @@ class UserInfo extends React.Component {
     })
     .catch((res) => {
       this.setState({isRejected: true})
-      console.log('whoa',res)
     });
   }
 

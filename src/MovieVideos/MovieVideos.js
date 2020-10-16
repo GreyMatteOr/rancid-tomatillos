@@ -1,6 +1,7 @@
 import React from 'react';
-import request from '../api-requests.js';
 import './MovieVideos.css';
+import request from '../api-requests.js';
+let { getMovieVideos } = request;
 
 class MovieVideos extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class MovieVideos extends React.Component {
   }
 
   componentDidMount() {
-    request.getMovieVideos(this.state.movieID)
+    getMovieVideos(this.state.movieID)
       .then( (videos) => {
         videos.isLoading = false;
         this.setState(videos);

@@ -1,11 +1,33 @@
 import '@testing-library/jest-dom';
 import { createMemoryHistory } from 'history';
 import MovieModal from './MovieModal.js';
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Router } from "react-router-dom";
 import userEvent from '@testing-library/user-event';
+import request from '../api-requests.js';
 
+jest.mock('../api-requests.js');
+request.getMovieDetails.mockResolvedValue(
+  {
+    movie: {
+      id: 1,
+      title: "Movie Title",
+      poster_path: "someURL",
+      backdrop_path: "someURL",
+      release_date: "2019-12-04",
+      overview: "Some overview",
+      average_rating: 6,
+      genres: [{id: 18, name:"Drama"}],
+      budget:63000000,
+      revenue:100853753,
+      runtime:139,
+      tagline: "Movie Tagline"
+    }
+  }
+);
+
+request.getMovieVideos.mockResolvedValue({videos: []});
 
 describe( 'MovieModal', () => {
   let mockRating = {rating:''};
@@ -51,5 +73,40 @@ describe( 'MovieModal', () => {
 
     userEvent.click(screen.getByRole('close-modal'));
     expect(customHistory.entries[1].pathname).toEqual('/');
-  })
+  });
+
+  it('should fetch movie data and display it', async () => {
+
+    render(
+      <Router history={customHistory}>
+        <MovieModal
+          getMovieDetails={request.getMovieDetails}
+          movieID='43'
+          userRating={mockRating}
+        />
+      </Router>
+    );
+
+    expect(screen.getByText('LOADING').className).toEqual('loading-msg');
+    expect(screen.getByTestId('movie-details').className).toEqual('text-display');
+
+    const avgRating = await waitFor(() => screen.getByText('Average Rating: 6'));
+    expect(avgRating).toBeInTheDocument();
+
+    expect(request.getMovieDetails).toHaveBeenCalled();
+    expect(request.getMovieDetails).toHaveBeenCalledWith('43');
+
+    expect(screen.getByText('LOADING').className).toEqual('loading-msg hidden');
+    expect(screen.getByTestId('movie-details').className).toEqual('text-display done-loading');
+
+    expect(screen.getByText('LOADING')).toBeInTheDocument();
+    expect(screen.getByText('Average Rating: 6')).toBeInTheDocument();
+    expect(screen.getByText('Title: Movie Title')).toBeInTheDocument();
+    expect(screen.getByText('Tagline: Movie Tagline')).toBeInTheDocument();
+    expect(screen.getByText('Released: 2019-12-04')).toBeInTheDocument();
+    expect(screen.getByText('Description: Some overview')).toBeInTheDocument();
+    expect(screen.getByText('Budget: 63000000')).toBeInTheDocument();
+    expect(screen.getByText('Revenue: 100853753')).toBeInTheDocument();
+    expect(screen.getByText('Runtime: 139')).toBeInTheDocument();
+  });
 });

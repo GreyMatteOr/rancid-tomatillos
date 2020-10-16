@@ -12,11 +12,11 @@ request.getMoviesData()
   .then(data => movies = data.movies)
   .then( () => {
     ReactDOM.render(
-      <Router>
+      <BrowserRouter>
         <React.StrictMode>
           <App movies={movies}/>
         </React.StrictMode>
-      </Router>,
+      </BrowserRouter>,
 
       document.getElementById('root')
     );
