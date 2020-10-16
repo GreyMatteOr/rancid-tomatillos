@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import './MovieModal.css';
 import xToClose from './x-to-close.png';
 import request from '../api-requests.js';
-let { getMovieDetails } = request;
 
 
 class MovieModal extends React.Component {
@@ -15,13 +14,12 @@ class MovieModal extends React.Component {
       movieID: this.props.movieID,
       userRating: this.props.userRating,
       isLoggedIn: this.props.isLoggedIn,
-      isLoading: true,
-      getMovieDetails: this.props.getMovieDetails || getMovieDetails
+      isLoading: true
     };
   }
 
   componentDidMount() {
-    let movieDetails = this.state.getMovieDetails(this.state.movieID)
+    let movieDetails = request.getMovieDetails(this.state.movieID)
       .then( ({movie}) => {
         movie.isLoading = false;
         this.setState(movie);

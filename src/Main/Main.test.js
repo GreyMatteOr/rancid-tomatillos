@@ -32,7 +32,15 @@ describe( 'Main', () => {
   it( 'should display 1 `MovieCard` for each element in `movies`', () => {
     render (
       <Router history={customHistory}>
-        <Main movies={[{title:1},{title:2},{title:3}]}/>
+        <Main
+          movies={
+            [
+              {title:1, average_rating: 1},
+              {title:2, average_rating:2},
+              {title:3, average_rating: 3}
+            ]
+          }
+        />
       </Router>
     )
     expect(screen.queryAllByRole('movie-card').length).toEqual(3);

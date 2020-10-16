@@ -1,6 +1,5 @@
 import React from 'react';
 import request from '../api-requests.js';
-let { attemptLogin } = request;
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class UserInfo extends React.Component {
       userID: '',
       name: '',
       password: '',
-      attemptLogin: this.props.attemptLogin || attemptLogin,
       idNumber: null,
     }
   }
@@ -49,14 +47,12 @@ class UserInfo extends React.Component {
 
   logIn(event) {
     event.preventDefault();
-    this.state.attemptLogin(this.state.userID, this.state.password)
+    request.attemptLogin(this.state.userID, this.state.password)
     .then(({user}) => {
       this.setState({isLoggedIn: true, name: user.name});
       this.props.displayUserRatings(user.id);
     })
-    .catch((res) => {
-      this.setState({isRejected: true})
-    });
+    .catch((res) => this.setState({isRejected: true}));
   }
 
   logOut(event) {

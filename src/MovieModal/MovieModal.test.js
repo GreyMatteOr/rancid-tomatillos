@@ -87,18 +87,15 @@ describe( 'MovieModal', () => {
       </Router>
     );
 
+    //This tests the before display-styles
     expect(screen.getByText('LOADING').className).toEqual('loading-msg');
     expect(screen.getByTestId('movie-details').className).toEqual('text-display');
 
+    //When this happens, everything is finished
     const avgRating = await waitFor(() => screen.getByText('Average Rating: 6'));
+
+    //This tests everything is displaying the correct text
     expect(avgRating).toBeInTheDocument();
-
-    expect(request.getMovieDetails).toHaveBeenCalled();
-    expect(request.getMovieDetails).toHaveBeenCalledWith('43');
-
-    expect(screen.getByText('LOADING').className).toEqual('loading-msg hidden');
-    expect(screen.getByTestId('movie-details').className).toEqual('text-display done-loading');
-
     expect(screen.getByText('LOADING')).toBeInTheDocument();
     expect(screen.getByText('Average Rating: 6')).toBeInTheDocument();
     expect(screen.getByText('Title: Movie Title')).toBeInTheDocument();
@@ -108,5 +105,11 @@ describe( 'MovieModal', () => {
     expect(screen.getByText('Budget: 63000000')).toBeInTheDocument();
     expect(screen.getByText('Revenue: 100853753')).toBeInTheDocument();
     expect(screen.getByText('Runtime: 139')).toBeInTheDocument();
+    expect(request.getMovieDetails).toHaveBeenCalled();
+    expect(request.getMovieDetails).toHaveBeenCalledWith('43');
+
+    //This tests the after display-styles
+    expect(screen.getByText('LOADING').className).toEqual('loading-msg hidden');
+    expect(screen.getByTestId('movie-details').className).toEqual('text-display done-loading');
   });
 });

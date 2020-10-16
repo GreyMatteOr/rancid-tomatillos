@@ -51,5 +51,3 @@ class MovieVideos extends React.Component {
 }
 
 export default MovieVideos;
-//movie id isnt being passed properly into the fetch cause of Reasons?????
-//https://www.youtube.com/watch?v=SUXWAEX2jlg

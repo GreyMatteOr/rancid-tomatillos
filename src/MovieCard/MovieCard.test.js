@@ -13,7 +13,7 @@ describe( 'MovieCard', () => {
   let mockMovie = {
     poster: '',
     title: '',
-    average_rating: 'global rating',
+    average_rating: '7',
     id: '17',
   }
 
@@ -25,7 +25,7 @@ describe( 'MovieCard', () => {
       </Router>
     );
 
-    expect(screen.getByText('global rating')).toBeInTheDocument();
+    expect(screen.getByText('7')).toBeInTheDocument();
     expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
@@ -50,7 +50,6 @@ describe( 'MovieCard', () => {
     );
 
     userEvent.click(screen.getByRole('movie-card'));
-    userEvent.click(screen.getByRole('overlay'));
     expect(screen.queryByRole('overlay')).toBeNull();
     expect(screen.queryByRole('movie-modal')).toBeNull();
   });
