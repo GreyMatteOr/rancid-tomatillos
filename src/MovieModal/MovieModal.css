@@ -24,7 +24,7 @@
   text-align: left;
 }
 
-.done-loading {
+.loading-msg, .done-loading {
   transition: all 1.2s;
   opacity: 1;
   align-content: center;

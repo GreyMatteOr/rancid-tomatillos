@@ -1,25 +1,25 @@
 import React from 'react';
-import request from '../api-requests.js';
 import MovieVideos from '../MovieVideos/MovieVideos.js';
 import UserRating from '../UserRating/UserRating.js';
+import { Link } from 'react-router-dom';
 import './MovieModal.css';
 import xToClose from './x-to-close.png';
+import request from '../api-requests.js';
+
 
 class MovieModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.state = {
       movieID: this.props.movieID,
       userRating: this.props.userRating,
       isLoggedIn: this.props.isLoggedIn,
-      isLoading: true,
-      // close: this.props.close
+      isLoading: true
     };
   }
 
   componentDidMount() {
-    request.getMovieDetails(this.state.movieID)
+    let movieDetails = request.getMovieDetails(this.state.movieID)
       .then( ({movie}) => {
         movie.isLoading = false;
         this.setState(movie);
@@ -37,9 +37,11 @@ class MovieModal extends React.Component {
           backgroundSize: "100% auto"
         }}
       >
-        // <img className='exit' src={xToClose} alt='close the pop out' onClick={this.state.close}/>
-        <h3 className={this.state.isLoading ? '.done-loading' : '.done-loading hidden'}>LOADING</h3>
-        <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'}>
+        <Link to={`/`}>
+          <img className='exit' src={xToClose} role='close-modal' alt='close the pop out display' />
+        </Link>
+        <h3 className={this.state.isLoading ? 'loading-msg' : 'loading-msg hidden'}>LOADING</h3>
+        <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'} data-testid="movie-details">
           <h3 className='global-rating-modal'>Average Rating: {this.roundToTenth(this.state.average_rating)}</h3>
           {(this.state.isLoggedIn
             ? <UserRating

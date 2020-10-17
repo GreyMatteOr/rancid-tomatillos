@@ -5,50 +5,39 @@ import MovieCard from '../MovieCard/MovieCard.js';
 import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import request from '../api-requests.js';
-
-
-
-
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
+import { Router } from "react-router-dom";
+import { createMemoryHistory } from 'history';
+
+let customHistory = createMemoryHistory();
+let movies =[];
 
 describe( 'App', () => {
 
   it('should be able to login a user', () => {
-    let movies =[];
 
-    render(<App movies={movies} debug={true}/>);
+    render(
+      <Router history={customHistory}>
+        <App movies={movies}/>
+      </Router>
+    );
 
     userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
     userEvent.click(screen.getByRole('button', { name: 'Submit' }));
-
-    // expect(screen.getByRole('heading', { name: 'Welcome, tinsel@turing.io' }))
   })
 
   it('should be able to logout a user', () => {
-    let movies =[];
 
-    render(<App movies={movies} debug={true}/>);
-
+    render(
+      <Router history={customHistory}>
+        <App movies={movies}/>
+      </Router>
+    );
+    
     userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
     userEvent.click(screen.getByRole('button', { name: 'Submit' }));
-    // userEvent.click(screen.getByRole('button', {name: 'Log out'}))
-
-    // expect(screen.getByRole('heading', { name: 'Please log in!' }))
   })
-
-  // it('should give an error for incorrect login credentials', () => {
-  //
-  //
-  // })
-
-
-//when loads, email and pass input
-//when type in stuff, blah blah blah
-//then test this fella up there ^^^^^
-//test logout functionality as well
-//neat
-
 });

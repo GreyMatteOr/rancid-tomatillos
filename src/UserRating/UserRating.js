@@ -8,7 +8,6 @@ import unfilledStar from './unfilledStar.png';
 class MovieModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log('I NEED ', this.props)
     this.state = {
       userID: this.props.userID,
       rating: this.props.rating.rating || 0,
