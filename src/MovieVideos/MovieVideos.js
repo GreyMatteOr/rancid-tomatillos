@@ -1,11 +1,11 @@
 import React from 'react';
-import request from '../api-requests.js';
 import './MovieVideos.css';
+import request from '../api-requests.js';
+let { getMovieVideos } = request;
 
 class MovieVideos extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.state = {
       isLoading: true,
       movieID: this.props.movieID
@@ -13,7 +13,7 @@ class MovieVideos extends React.Component {
   }
 
   componentDidMount() {
-    request.getMovieVideos(this.state.movieID)
+    getMovieVideos(this.state.movieID)
       .then( (videos) => {
         videos.isLoading = false;
         this.setState(videos);
@@ -23,7 +23,7 @@ class MovieVideos extends React.Component {
 
   render() {
     if( this.state.isLoading ) {
-      return <h3>LOADING</h3>
+      return <h3>loading</h3>
     } else {
       return (
         <div
@@ -51,5 +51,3 @@ class MovieVideos extends React.Component {
 }
 
 export default MovieVideos;
-//movie id isnt being passed properly into the fetch cause of Reasons?????
-//https://www.youtube.com/watch?v=SUXWAEX2jlg

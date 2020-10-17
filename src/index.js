@@ -2,24 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from '../src/App/App.js';
-import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import request from './api-requests.js';
 import { BrowserRouter } from 'react-router-dom';
 
 let movies = [];
 
-const router = <BrowserRouter> <App movies={movies}/> </BrowserRouter>;
 request.getMoviesData()
   .then(data => movies = data.movies)
   .then( () => {
     ReactDOM.render(
-      <Router>
+      <BrowserRouter>
         <React.StrictMode>
           <App movies={movies}/>
         </React.StrictMode>
-      </Router>,
-      
+      </BrowserRouter>,
+
       document.getElementById('root')
     );
   });

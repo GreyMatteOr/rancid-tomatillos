@@ -1,5 +1,5 @@
+import { screen, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
 import UserInfo from './UserInfo.js';
 import userEvent from '@testing-library/user-event';
 import request from '../api-requests.js';
@@ -24,12 +24,23 @@ describe( 'UserInfo', () => {
   });
 
   it('should log in when a `happy` response is received', async () => {
-    request.attemptLogin.mockResolvedValueOnce({user:{name:'debug', id: 1}});
+
+    request.attemptLogin.mockResolvedValueOnce(
+      {
+        user:
+        {
+          name: 'debug', 
+          id: 1
+        }
+      }
+    );
+
     render(<UserInfo attemptLogin={request.attemptLogin}/>);
     userEvent.click(screen.getByRole('button', {name: 'Submit'}));
 
     const logoutButton = await waitFor(() => screen.getByRole('button', {name: 'Log out'}));
     const welcomeMSG = await waitFor(() => screen.getByRole('heading', {name: 'Welcome, debug'}));
+
     expect(logoutButton).toBeInTheDocument();
     expect(welcomeMSG).toBeInTheDocument();
     expect(request.attemptLogin).toHaveBeenCalled();
