@@ -1,5 +1,6 @@
 import React from 'react';
-import rtIcon from './rancidtomatillos.png';
+import rtIcon from './rancidtomatillostitle.png';
+import './Logo.css';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -10,13 +11,13 @@ class Logo extends React.Component {
     return (
       <section role='logo'>
         <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
-        <section className='header-text'>
-          <h1 className='site-title'>Rancid Tomatillos</h1>
-          <h3 className='quote'>'Some clever quote!'</h3>
-        </section>
       </section>
     )
   }
 }
+
+// <section className='header-text'>
+//   <h3 className='quote'>'Some clever quote!'</h3>
+// </section>
 
 export default Logo;

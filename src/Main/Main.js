@@ -1,6 +1,7 @@
 import MovieCard from '../MovieCard/MovieCard.js';
 import React from 'react';
 import App from '../App/App.js';
+import './Main.css';
 
 
 class Main extends React.Component {

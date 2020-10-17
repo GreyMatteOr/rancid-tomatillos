@@ -1,3 +1,8 @@
+import React from 'react';
+import request from '../api-requests.js';
+import UserInfo
+
+
 // <input
 //   className="username"
 //   type="text"

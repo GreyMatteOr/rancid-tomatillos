@@ -1,7 +1,7 @@
 header {
   display: flex;
-  border: 2px solid black;
   justify-content: space-between;
+  background-color: #fbfbf8;
 }
 
 form {
@@ -18,9 +18,9 @@ form {
 }
 
 .logo-pic {
-  margin-top: 1em;
-  margin-right: 3em;
-  height: 18em;
+  margin-top: 2em;
+  /* margin-right: 2em; */
+  width: 45em;
 }
 
 .site-title {

@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserInfo.css';
 import request from '../api-requests.js';
 let { attemptLogin } = request;
 
@@ -27,21 +28,7 @@ class UserInfo extends React.Component {
     } else {
       return (
         <form>
-          <h2 className='secondary-font'>Please log in!</h2>
-          <input
-            className="username"
-            type="text"
-            placeholder="user id"
-            onChange={ (event) => this.state.userID = event.target.value }
-          />
-          <input
-            className="password"
-            type="password"
-            placeholder="password"
-            onChange={ (event) => this.state.password = event.target.value }
-          />
-          <button className="submit-credentials" id="submit-credentials" onClick={event => this.logIn(event)} submit=''>Submit</button>
-          <h3 id='warning'>{ this.state.isRejected ? 'TRY AGAIN FOREVER' : '' }</h3>
+          <button className='signinbutton'>꧁Sign In꧂</button>
         </form>
       )
     }
@@ -66,5 +53,8 @@ class UserInfo extends React.Component {
     this.props.hideUserRatings();
   }
 }
+
+
+//<h2 className='secondary-font'>Please log in!</h2>
 
 export default UserInfo;
