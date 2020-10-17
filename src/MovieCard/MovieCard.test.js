@@ -8,7 +8,6 @@ import { createMemoryHistory } from 'history';
 
 let customHistory = createMemoryHistory();
 
-
 describe( 'MovieCard', () => {
   let mockMovie = {
     poster: '',

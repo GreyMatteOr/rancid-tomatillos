@@ -50,7 +50,7 @@ describe( 'MovieModal', () => {
     expect(screen.getByText('Budget:')).toBeInTheDocument();
     expect(screen.getByText('Revenue:')).toBeInTheDocument();
     expect(screen.getByText('Runtime:')).toBeInTheDocument();
-    expect(screen.getByRole('movie-videos')).toBeInTheDocument();
+    expect(screen.getByText('loading')).toBeInTheDocument();
   });
 
   it( 'should display a User Rating when logged in', () => {
@@ -113,10 +113,4 @@ describe( 'MovieModal', () => {
     expect(screen.getByText('LOADING').className).toEqual('loading-msg hidden');
     expect(screen.getByTestId('movie-details').className).toEqual('text-display done-loading');
   });
-
-  it( 'should navigate to the home page when the user hits the `x` button', () => {
-    render(<MovieModal />);
-
-
-  })
 });
