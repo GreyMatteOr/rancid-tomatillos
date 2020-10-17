@@ -1,11 +1,10 @@
 import React from 'react';
 import request from '../api-requests.js';
-import UserRating from '../UserRating/UserRating.js';
 import './UserRating.css';
 import filledStar from './filledStar.png';
 import unfilledStar from './unfilledStar.png';
 
-class MovieModal extends React.Component {
+class UserRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,28 +16,25 @@ class MovieModal extends React.Component {
     this.isError = false;
   }
 
-  updateRating(starNumber) {
+  parseUpdate(starNumber) {
     if(this.state.ratingID !== null) this.deleteAndUpdateRating(starNumber);
-    else {
-      request.updateUserRating(starNumber, this.state.movieID, this.state.userID)
-      .then( () => {
-        this.setState({rating: starNumber})
-      });
-    }
+    else this.updateRating(starNumber);
+  }
+
+  updateRating(starNumber) {
+    request.updateUserRating(starNumber, this.state.movieID, this.state.userID)
+    .then( () => {
+      request.getUserRatings(this.state.userID)
+      .then( ({ ratings }) => {
+        let rating = ratings.find( rating => rating.movie_id === this.state.movieID) || {id: null};
+        this.setState({rating: starNumber, ratingID: rating.id});
+      })
+    });
   }
 
   deleteAndUpdateRating(starNumber) {
     request.deleteUserRating(this.state.ratingID, this.state.userID)
-    .then( () => {
-      request.updateUserRating(starNumber, this.state.movieID, this.state.userID)
-      .then( () => {
-        request.getUserRatings(this.state.userID)
-        .then( ({ ratings }) => {
-          let rating = ratings.find( rating => rating.movie_id === this.state.movieID) || {id: null};
-          this.setState({rating: starNumber, ratingID: rating.id});
-        })
-      });
-    })
+    .then( () => this.updateRating(starNumber))
     .catch(response => console.log(response));
   }
 
@@ -50,12 +46,12 @@ class MovieModal extends React.Component {
         key={`star${i}`}
         src={i <= this.state.rating ? filledStar : unfilledStar}
         alt={`Rated ${this.state.rating}/10`}
-        onClick={() => this.updateRating(i)}
-        />
+        onClick={() => this.parseUpdate(i)}
+      />
       display.push( element )
     }
     return display;
   }
 }
 
-export default MovieModal;
+export default UserRating;
