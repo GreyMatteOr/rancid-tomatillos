@@ -10,3 +10,7 @@
   font-size: 2em;
   font-family: 'Arvo'
 }
+
+.loginform {
+  visibility: hidden;
+}

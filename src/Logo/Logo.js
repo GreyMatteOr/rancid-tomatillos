@@ -12,12 +12,8 @@ class Logo extends React.Component {
       <section role='logo'>
         <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
       </section>
-    </section>
-  )
+    )
+  }
 }
-
-// <section className='header-text'>
-//   <h3 className='quote'>'Some clever quote!'</h3>
-// </section>
 
 export default Logo;
