@@ -1,8 +1,7 @@
 import React from 'react';
 import '../App/App.css';
 import './MovieCard.css';
-import MovieModal from '../MovieModal/MovieModal.js'
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class MovieCard extends React.Component{

@@ -50,6 +50,7 @@ describe( 'MovieModal', () => {
     expect(screen.getByText('Budget:')).toBeInTheDocument();
     expect(screen.getByText('Revenue:')).toBeInTheDocument();
     expect(screen.getByText('Runtime:')).toBeInTheDocument();
+    expect(screen.getByText('loading')).toBeInTheDocument();
   });
 
   it( 'should display a User Rating when logged in', () => {

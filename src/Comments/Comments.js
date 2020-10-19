@@ -1,0 +1,63 @@
+import CommentForm from '../CommentForm/CommentForm.js';
+import React from 'react';
+import time from '../Time.js';
+import request from '../api-requests.js';
+
+class Comments extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: [],
+      isLoading: true,
+      isLoggedIn: this.props.isLoggedIn
+    }
+    this.movieID = this.props.movieID;
+    this.userName = this.props.userName;
+    console.log(this.movieID, this.userName)
+  }
+
+  componentDidMount() {
+    this.getComments();
+  }
+
+  createComment(comment) {
+    let now = new Date();
+    let aMinuteAgo = time.advanceDateBy(-time.minute);
+    let timeOfPost = new Date(comment.id);
+    let isCurrent = time.isBetween(aMinuteAgo, timeOfPost, now);
+    let timestamp = (isCurrent ? 'just now' : `${time.getRelativeDistance(timeOfPost)} ago`);
+    return (
+      <div role='comment' key={comment.id}>
+        <h3 className='comment'>{comment.comment}</h3>
+        <h3 className='comment-by'> {timestamp} by: {comment.author}</h3>
+      </div>
+    )
+  }
+
+  getComments = () => {
+    request.getComments(this.movieID)
+    .then( ({comments}) => {
+      console.log(comments)
+      this.setState({comments: comments, isLoading: false})
+    })
+    .catch( err => console.log(err));
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return <h3>Loading Comments</h3>;
+    } else {
+      return <>
+        {this.state.comments.map( comment => this.createComment(comment))}
+        <CommentForm
+          movieID={this.movieID}
+          isLoggedIn={this.state.isLoggedIn}
+          userName={this.userName}
+          loadComments={this.getComments}
+        />
+      </>
+    }
+  }
+}
+
+export default Comments;

@@ -1,7 +1,6 @@
 import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import MovieModal from '../MovieModal/MovieModal.js';
-import MovieVideos from '../MovieVideos/MovieVideos.js';
 import request from '../api-requests.js';
 import React from 'react';
 import './App.css';
@@ -15,15 +14,20 @@ class App extends React.Component{
       isLoggedIn: this.props.isLoggedIn || false
     }
 
-    this.displayUserRatings = (userID) => {
+    this.displayUserRatings = (userID, userName) => {
       request.getUserRatings(userID)
       .then( ({ratings}) => {
         let update = this.state.movies.map( movie => {
-          let userRating = ratings.find( rating => rating.movie_id == movie.id ) || 0;
-          movie.userRating = userRating;
+          let userRating = ratings.find( rating => +rating.movie_id === +movie.id );
+          movie.userRating = userRating || {rating: 0};
           return movie;
         });
-        this.setState( {movies: update, isLoggedIn: true, userID: userID} )
+        this.setState({
+          movies: update,
+          isLoggedIn: true,
+          userID: userID,
+          userName: userName
+        });
       });
     }
 
@@ -35,20 +39,37 @@ class App extends React.Component{
   render () {
     return (
       <div className="App">
-        <Route path='/' render={ () => <Header
-          displayUserRatings={this.displayUserRatings}
-          hideUserRatings={this.hideUserRatings}
-          isLoggedIn={this.state.isLoggedIn}
-        />} />
-        <Route path='/' render={ () => <Main
-          movies={this.state.movies}
-          isLoggedIn={this.state.isLoggedIn}
-        />} />
-        <Route exact path='/movieDetails/:id'
-        render={({ match }) => {
+        <Route path='/' render={() => {
+          return (
+            <Header
+              displayUserRatings={this.displayUserRatings}
+              hideUserRatings={this.hideUserRatings}
+              isLoggedIn={this.state.isLoggedIn}
+              movies={this.state.movies}
+            />
+          )}}
+        />
+        <Route path='/' render={ () => {
+          return (
+            <Main
+              movies={this.state.movies}
+              isLoggedIn={this.state.isLoggedIn}
+            />
+          )}}
+        />
+        <Route exact path='/movieDetails/:id' render={ ({ match }) => {
           const { id } = match.params;
           const movie = this.state.movies.find(movie => movie.id === parseInt(id));
-          return <MovieModal movieID={movie.id} userRating={this.state.userRating} isLoggedIn={this.state.isLoggedIn} /> }} />
+          return (
+            <MovieModal
+              movieID={movie.id}
+              movie={movie}
+              isLoggedIn={this.state.isLoggedIn}
+              userName={this.state.userName}
+              userID={this.state.userID}
+            />
+          )}}
+        />
       </div>
     );
   }
