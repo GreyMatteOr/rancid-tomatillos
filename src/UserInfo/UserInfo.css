@@ -1,0 +1,12 @@
+.signinbutton {
+  border-left: none;
+  border-right: none;
+  background: none;
+  padding-top: 1.2em;
+  padding-bottom: 2.7em;
+  margin-top: .5em;
+  width: 7em;
+  height: 2.3em;
+  font-size: 2em;
+  font-family: 'Arvo'
+}

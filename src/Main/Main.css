@@ -1,0 +1,47 @@
+main {
+  background-color: #fbfbf8;
+  height: 76%;
+}
+
+.main-title-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+
+}
+
+.main-title {
+  font-family: 'Arvo';
+  font-size: 1.1em;
+  padding-top: -10em;
+}
+
+.main-title-editor {
+  font-family: 'Arvo';
+  font-size: .5em;
+  padding-top: -10em;
+  text-align: left;
+  padding-top: .3em;
+}
+
+.main-title-copyright {
+  font-family: 'Arvo';
+  font-size: .7em;
+  text-align: left;
+  padding-top: .2em;
+}
+
+.movie-poster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em,1fr));
+  grid-gap: 5em;
+  justify-content: center;
+}
+
+#movie-display {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 5em;
+}

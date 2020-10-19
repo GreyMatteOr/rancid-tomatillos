@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserInfo.css';
 import request from '../api-requests.js';
 
 class UserInfo extends React.Component {
@@ -38,7 +39,7 @@ class UserInfo extends React.Component {
             placeholder="password"
             onChange={ (event) => this.password = event.target.value }
           />
-          <button className="submit-credentials" id="submit-credentials" onClick={event => this.logIn(event)} submit=''>Submit</button>
+          <button className="submit-credentials signinbutton" id="submit-credentials" onClick={event => this.logIn(event)} submit=''>꧁Sign In꧂</button>
           <h3 id='warning'>{ this.state.isRejected ? 'TRY AGAIN FOREVER' : '' }</h3>
         </form>
       )
@@ -61,5 +62,8 @@ class UserInfo extends React.Component {
     this.props.hideUserRatings();
   }
 }
+
+
+//<h2 className='secondary-font'>Please log in!</h2>
 
 export default UserInfo;
