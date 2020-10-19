@@ -11,7 +11,6 @@ class CommentForm extends React.Component {
     this.comment = '';
     this.userName = this.props.userName;
     this.loadComments = this.props.loadComments;
-    console.log(this.movieID)
   }
 
   render() {

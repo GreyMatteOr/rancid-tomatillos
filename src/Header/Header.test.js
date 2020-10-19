@@ -17,7 +17,7 @@ describe( 'Header', () => {
       render(<Header isLoggedIn={false}/>)
       expect(screen.getByPlaceholderText('user id')).toBeInTheDocument();
       expect(screen.getByPlaceholderText('password')).toBeInTheDocument();
-      expect(screen.getByRole('button')).toBeInTheDocument();
+      expect(screen.getByRole('button', {name: "Submit"})).toBeInTheDocument();
     });
 
     it( 'should display a logout form when `isLoggedIn` is `true`', () =>{
