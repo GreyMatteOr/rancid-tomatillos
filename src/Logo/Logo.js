@@ -9,8 +9,8 @@ function Logo() {
         <h1 className='site-title'>Rancid Tomatillos</h1>
         <h3 className='quote'>'Some clever quote!'</h3>
       </section>
-    </section>
-  )
+    )
+  }
 }
 
 export default Logo;

@@ -16,7 +16,7 @@ class CommentForm extends React.Component {
   render() {
     if(this.state.isLoggedIn) {
       return (
-        <>
+        <div data-testid='comment-form'>
           <input
             className='comment-field'
             placeholder='Leave a comment...'
@@ -28,7 +28,7 @@ class CommentForm extends React.Component {
             onClick={this.postComment}
           >POST!
           </button>
-        </>
+        </div>
       )
     } else {
       return <h3 id='log-in-to-post'>You must be logged in to comment!</h3>
