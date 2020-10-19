@@ -1,4 +1,5 @@
 import React from 'react';
+import Comments from '../Comments/Comments.js';
 import MovieVideos from '../MovieVideos/MovieVideos.js';
 import UserRating from '../UserRating/UserRating.js';
 import { Link } from 'react-router-dom';
@@ -12,14 +13,17 @@ class MovieModal extends React.Component {
     super(props);
     this.state = {
       movieID: this.props.movieID,
-      userRating: this.props.userRating,
+      movie: this.props.movie,
       isLoggedIn: this.props.isLoggedIn,
-      isLoading: true
+      userName: this.props.userName,
+      isLoading: true,
+      userID: this.props.userID
     };
+    console.log(this.userName)
   }
 
   componentDidMount() {
-    let movieDetails = request.getMovieDetails(this.state.movieID)
+    request.getMovieDetails(this.state.movieID)
       .then( ({movie}) => {
         movie.isLoading = false;
         this.setState(movie);
@@ -45,7 +49,7 @@ class MovieModal extends React.Component {
           <h3 className='global-rating-modal'>Average Rating: {this.roundToTenth(this.state.average_rating)}</h3>
           {(this.state.isLoggedIn
             ? <UserRating
-              rating={this.state.userRating}
+              rating={this.state.movie.userRating}
               movieID={this.state.movieID}
               userID={this.state.userID} />
             : <></>
@@ -58,7 +62,12 @@ class MovieModal extends React.Component {
           <h3 className='revenue'>Revenue: {this.state.revenue}</h3>
           <h3 className='runtime'>Runtime: {this.state.runtime}</h3>
         </section>
-        <MovieVideos movieID={this.state.movieID}/>
+        <MovieVideos movieID={this.state.movieID} movieName={this.state.title} />
+        <Comments
+          isLoggedIn={this.state.isLoggedIn}
+          movieID={this.state.movieID}
+          userName={this.props.userName}
+        />
       </div>
     );
   }

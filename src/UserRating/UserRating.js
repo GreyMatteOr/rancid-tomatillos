@@ -7,6 +7,7 @@ import unfilledStar from './unfilledStar.png';
 class UserRating extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.rating)
     this.state = {
       userID: this.props.userID,
       rating: this.props.rating.rating || 0,
@@ -23,7 +24,8 @@ class UserRating extends React.Component {
 
   updateRating(starNumber) {
     request.updateUserRating(starNumber, this.state.movieID, this.state.userID)
-    .then( () => {
+    .then( response => {
+      console.log(response)
       request.getUserRatings(this.state.userID)
       .then( ({ ratings }) => {
         let rating = ratings.find( rating => rating.movie_id === this.state.movieID) || {id: null};

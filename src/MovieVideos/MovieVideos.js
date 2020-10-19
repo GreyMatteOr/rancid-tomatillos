@@ -8,7 +8,8 @@ class MovieVideos extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      movieID: this.props.movieID
+      movieID: this.props.movieID,
+      movieName: this.props.movieName
     };
   }
 
@@ -31,9 +32,10 @@ class MovieVideos extends React.Component {
           role='movie-videos'
         >
           {this.state.videos.map(video => {
-            return <div className='video'>
+            return <div className='video' key={video.key}>
               <h3>{video.type}</h3>
               <iframe
+                title={`${video.type} for this.movieName`}
                 width="356"
                 height="200"
                 src={`https://www.youtube.com/embed/${video.key}`}

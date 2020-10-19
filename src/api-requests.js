@@ -1,5 +1,7 @@
 let request = {
   url: 'https://rancid-tomatillos.herokuapp.com/api/v2',
+  url2: 'https://enigmatic-everglades-10048.herokuapp.com/api/v1/',
+
   attemptLogin(email, password) {
     // let body = JSON.stringify({email: email, password: password});
     let body = JSON.stringify({email: 'tinsel@turing.io', password: 'zxcvb'});
@@ -42,23 +44,31 @@ let request = {
         }
       }
     )
+    .then(response => {
+      console.log(response)
+      return response.json()
+    });
+  },
+
+  getComments(movieID) {
+    return fetch(request.url2 + `movies/${movieID}/comments`)
+      .then(response => response.json());
+  },
+
+  postComment(movieID, comment, author) {
+    console.log(movieID, comment, author)
+    let body = JSON.stringify({ comment: comment, author: author });
+    console.log(body)
+    return fetch(request.url2 + `movies/${movieID}/comments`, {
+        method: 'POST',
+        body: body,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
     .then(response => response.json());
   },
-  //
-  // deleteTripRequest(tripID) {
-  //   let data = {
-  //     id: tripID,
-  //   };
-  //   let update = JSON.stringify(data);
-  //   return fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips', {
-  //       method: 'DELETE',
-  //       body: update,
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     }
-  //   )
-  // },
 
   getMoviesData() {
     return fetch(request.url + '/movies')
@@ -67,7 +77,10 @@ let request = {
 
   getUserRatings(userID) {
     return fetch(request.url + `/users/${userID}/ratings`)
-      .then(response => response.json());
+      .then(response => {
+        console.log(response)
+        return response.json()
+      });
   }
 }
 

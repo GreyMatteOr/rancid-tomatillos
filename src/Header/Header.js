@@ -10,6 +10,7 @@ class Header extends React.Component {
     this.state = {
       isLoggedIn: this.props.isLoggedIn
     }
+    this.movies = this.props.movies;
   }
 
   render() {
