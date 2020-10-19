@@ -1,16 +1,10 @@
 .poster-img {
   width: 15em;
-  margin-bottom: -16em;
-  padding-bottom: -40em;
-  /* border: 3px solid black; */
   filter: grayscale(100%);
 }
 
-.poster-img:hover {
+.poster-img:hover, .globalRating:hover {
   width: 15em;
-  margin-bottom: -16em;
-  padding-bottom: -40em;
-
   filter: none;
   transition: 0.5s;
 }
@@ -21,14 +15,10 @@
   background: rgba(255, 255, 255, 0.8);
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  font-size: 5em;
+  font-size: 2em;
   position: relative;
-  top: 5.6em;
-  width: 2.2em;
-  height: .8em;
-  padding: .4em;
-  padding-bottom: 1em;
-  transition: 0.5s;
+  margin-top: -1.47em;
+  width: 3.5em;
 }
 
 /* .overlay {

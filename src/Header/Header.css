@@ -2,6 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: #fbfbf8;
+  height: 26%;
 }
 
 form {

@@ -23,15 +23,17 @@ class Main extends React.Component {
           <h1 className='main-title' id='main-title'>TEN CENTS</h1>
         </section>
         <section id='movie-display'>
-          {this.state.movies.map(movie => {
-            return <MovieCard
-                    key={movie.title}
-                    movie={movie}
-                    isLoggedIn={this.props.isLoggedIn}
-                    userID={this.props.userID}
-                    />
-            })
-          }
+          <section className='movie-poster'>
+            {this.state.movies.map(movie => {
+              return <MovieCard
+                      key={movie.title}
+                      movie={movie}
+                      isLoggedIn={this.props.isLoggedIn}
+                      userID={this.props.userID}
+                      />
+              })
+            }
+          </section>
         </section>
       </main>
     )

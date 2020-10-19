@@ -13,18 +13,17 @@ class MovieCard extends React.Component{
       title: this.props.movie['title'],
       globalRating: this.roundToTenth(this.props.movie['average_rating']),
       movieID: this.props.movie['id'],
-      // popOut: false
     };
   }
 
   render() {
     return (
-      <section className='clickarea'>
-      <Link to={`/movieDetails/${this.state.movieID}`}>
-        <h6 className='global-rating'>{this.state.globalRating}</h6>
-        <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
+      <>
+        <Link to={`/movieDetails/${this.state.movieID}`}>
+          <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
+          <h6 className='global-rating'>{this.state.globalRating}</h6>
         </Link>
-      </section>
+      </>
     )
   }
 

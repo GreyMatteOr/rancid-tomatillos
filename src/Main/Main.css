@@ -1,9 +1,6 @@
 main {
   background-color: #fbfbf8;
-}
-
-#movie-display {
-  margin-top: -30em;
+  height: 76%;
 }
 
 .main-title-area {
@@ -34,4 +31,17 @@ main {
   font-size: .7em;
   text-align: left;
   padding-top: .2em;
+}
+
+.movie-poster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em,1fr));
+  grid-gap: 5em;
+  justify-content: center;
+}
+
+#movie-display {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 5em;
 }

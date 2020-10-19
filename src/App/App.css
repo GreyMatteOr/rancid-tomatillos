@@ -41,13 +41,3 @@
 main {
   margin-bottom: 20em;
 }
-
-#movie-display {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em,1fr));
-  grid-gap: 5em;
-  justify-content: center;
-  margin-top: -9em;
-  margin-left: 2em;
-  margin-right: 5em;
-}
