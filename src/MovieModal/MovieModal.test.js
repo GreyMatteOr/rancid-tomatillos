@@ -28,16 +28,18 @@ request.getMovieDetails.mockResolvedValue(
 );
 
 request.getMovieVideos.mockResolvedValue({videos: []});
+request.getComments.mockResolvedValue({comments: []});
 
 describe( 'MovieModal', () => {
   let mockRating = {rating:''};
+  let mockMovie = {userRating: mockRating};
   let customHistory = createMemoryHistory();
 
   it( 'should display a modal', () =>{
 
     render(
       <Router history={customHistory}>
-        <MovieModal userRating={mockRating}/>
+        <MovieModal movie={mockMovie}/>
       </Router>
     );
 
@@ -57,7 +59,8 @@ describe( 'MovieModal', () => {
 
     render(
       <Router history={customHistory}>
-        <MovieModal isLoggedIn={true} userRating={mockRating}/>
+        <MovieModal isLoggedIn={true} movie={mockMovie}
+        movieID="03"/>
       </Router>
     );
 
@@ -68,7 +71,7 @@ describe( 'MovieModal', () => {
 
     render(
       <Router history={customHistory}>
-        <MovieModal userRating={mockRating}/>
+        <MovieModal movie={mockMovie}/>
       </Router>
     );
 
@@ -83,7 +86,7 @@ describe( 'MovieModal', () => {
         <MovieModal
           getMovieDetails={request.getMovieDetails}
           movieID='43'
-          userRating={mockRating}
+          movie={mockMovie}
         />
       </Router>
     );

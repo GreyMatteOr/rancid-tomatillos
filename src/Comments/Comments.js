@@ -13,7 +13,6 @@ class Comments extends React.Component {
     }
     this.movieID = this.props.movieID;
     this.userName = this.props.userName;
-    console.log(this.movieID, this.userName)
   }
 
   componentDidMount() {
@@ -36,10 +35,7 @@ class Comments extends React.Component {
 
   getComments = () => {
     request.getComments(this.movieID)
-    .then( ({comments}) => {
-      console.log(comments)
-      this.setState({comments: comments, isLoading: false})
-    })
+    .then( ({comments}) => this.setState({comments: comments, isLoading: false}))
     .catch( err => console.log(err));
   }
 

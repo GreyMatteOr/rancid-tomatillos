@@ -1,23 +1,27 @@
 .poster-img {
   width: 15em;
-  margin-bottom: -13em;
-  border: 3px solid black;
+  filter: grayscale(100%);
+}
+
+.poster-img:hover, .globalRating:hover {
+  width: 15em;
+  filter: none;
+  transition: 0.5s;
 }
 
 .global-rating {
+  font-family: 'Arvo';
   color: black;
-  background: white;
-  border: 2px solid black;
-  font-size: 1.5em;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  font-size: 2em;
   position: relative;
-  top: 4.6em;
-  width: max-content;
-  height: .8em;
-  padding: .5em;
-  padding-bottom: .8em;
+  margin-top: -1.47em;
+  width: 3.5em;
 }
 
-.overlay {
+/* .overlay {
   position: fixed;
   z-index: 2;
   top: 0;
@@ -25,4 +29,4 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-}
+} */

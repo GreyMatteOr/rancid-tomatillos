@@ -19,7 +19,6 @@ class MovieModal extends React.Component {
       isLoading: true,
       userID: this.props.userID
     };
-    console.log(this.userName)
   }
 
   componentDidMount() {

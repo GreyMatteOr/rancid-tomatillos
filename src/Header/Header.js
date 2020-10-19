@@ -1,8 +1,8 @@
 import Logo from '../Logo/Logo.js';
-import SearchForm from '../SearchForm/SearchForm.js';
+import FunFacts from '../FunFacts/FunFacts.js';
 import React from 'react';
 import UserInfo from '../UserInfo/UserInfo.js';
-// import './header.css';
+import './Header.css';
 
 class Header extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Header extends React.Component {
           hideUserRatings={this.props.hideUserRatings}
         />
         <Logo />
-        <SearchForm />
+        <FunFacts />
       </header>
     );
   }

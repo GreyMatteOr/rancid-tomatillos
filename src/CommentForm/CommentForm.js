@@ -5,13 +5,12 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: this.props.isLoggedIn
+      isLoggedIn: this.props.isLoggedIn,
+      comment: ''
     };
     this.movieID = this.props.movieID;
-    this.comment = '';
     this.userName = this.props.userName;
     this.loadComments = this.props.loadComments;
-    console.log(this.movieID)
   }
 
   render() {
@@ -20,7 +19,9 @@ class CommentForm extends React.Component {
         <>
           <input
             className='comment-field'
-            onChange={(event) => this.comment = event.target.value}
+            placeholder='Leave a comment...'
+            onChange={(event) => this.setState({comment: event.target.value})}
+            value={this.state.comment}
           />
           <button
             className='post-comment'
@@ -35,10 +36,10 @@ class CommentForm extends React.Component {
   }
 
   postComment = () => {
-    console.log(this)
-    request.postComment(this.movieID, this.comment, this.userName)
+    console.log(this.state.comment)
+    request.postComment(this.movieID, this.state.comment, this.userName)
     .then( response => {
-      console.log(response)
+      this.setState({comment:''});
       this.loadComments();
     })
     .catch( err => console.log(err));
