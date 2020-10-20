@@ -1,12 +1,16 @@
+.poster {
+  position: relative;
+}
+
 .poster-img {
   width: 15em;
-  filter: grayscale(100%);
+  filter: grayscale(85%);
+  transition: 0.5s;
 }
 
 .poster-img:hover, .globalRating:hover {
   width: 15em;
   filter: none;
-  transition: 0.5s;
 }
 
 .global-rating {
@@ -16,17 +20,9 @@
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   font-size: 2em;
-  position: relative;
-  margin-top: -1.47em;
-  width: 3.5em;
+  position: absolute;
+  top:0;
+  z-index: 3;
+  width: max-content;
+  padding: 0 .25em;
 }
-
-/* .overlay {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-} */
