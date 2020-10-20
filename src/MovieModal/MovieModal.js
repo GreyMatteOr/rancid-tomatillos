@@ -19,6 +19,7 @@ class MovieModal extends React.Component {
       isLoading: true,
       userID: this.props.userID
     };
+    this.props.setNoScroll(true);
   }
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class MovieModal extends React.Component {
         this.setState(movie);
       })
       .catch( err => console.log(err));
+  }
+
+  componentWillUnmount() {
+    this.props.setNoScroll(false);
   }
 
   render() {

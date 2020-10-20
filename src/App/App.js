@@ -11,32 +11,38 @@ class App extends React.Component{
     super(props);
     this.state = {
       movies: this.props.movies,
-      isLoggedIn: this.props.isLoggedIn || false
-    }
-
-    this.displayUserRatings = (userID, userName) => {
-      request.getUserRatings(userID)
-      .then( ({ratings}) => {
-        let update = this.state.movies.map( movie => {
-          let userRating = ratings.find( rating => +rating.movie_id === +movie.id );
-          movie.userRating = userRating || {rating: 0};
-          return movie;
-        });
-        this.setState({
-          movies: update,
-          isLoggedIn: true,
-          userID: userID,
-          userName: userName
-        });
-      });
-    }
-
-    this.hideUserRatings = () => {
-      this.setState( {isLoggedIn: false, userID: null})
+      isLoggedIn: this.props.isLoggedIn || false,
+      noScroll: false
     }
   }
 
+  displayUserRatings = (userID, userName) => {
+    request.getUserRatings(userID)
+    .then( ({ratings}) => {
+      let update = this.state.movies.map( movie => {
+        let userRating = ratings.find( rating => +rating.movie_id === +movie.id );
+        movie.userRating = userRating || {rating: 0};
+        return movie;
+      });
+      this.setState({
+        movies: update,
+        isLoggedIn: true,
+        userID: userID,
+        userName: userName
+      });
+    });
+  }
+
+  hideUserRatings = () => {
+    this.setState( {isLoggedIn: false, userID: null})
+  }
+
+  setModalCallBack = (func) => {
+    this.modalCallBack = func;
+  }
+
   render () {
+    console.log('App.', this.state)
     return (
       <div className="App">
         <Route path='/' render={() => {
@@ -54,6 +60,7 @@ class App extends React.Component{
             <Main
               movies={this.state.movies}
               isLoggedIn={this.state.isLoggedIn}
+              setModalCallBack={this.setModalCallBack}
             />
           )}}
         />
@@ -68,8 +75,9 @@ class App extends React.Component{
                 isLoggedIn={this.state.isLoggedIn}
                 userName={this.state.userName}
                 userID={this.state.userID}
+                setNoScroll={this.modalCallBack}
               />
-            </div>    
+            </div>
           )}}
         />
       </div>
