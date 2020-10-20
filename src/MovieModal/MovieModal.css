@@ -1,19 +1,51 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden
+}
+
 .modal {
   position: fixed;
   top: 1em;
-  z-index: 3;
-  margin: auto;
   padding: 1em;
+  margin-left: 3.5em;
+  margin-right: 1em;
   background: white;
-  height: auto;
   width: 90%;
   height: 90%;
-  border-radius: 1.5em;
-  box-shadow: black 3px 3px 3px;
   overflow: scroll;
 }
 
-.text-display {
+.movietitle {
+  margin-top: -.5em;
+  font-family: 'Bebas Neue';
+  font-size: 4em;
+}
+
+.under-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.global-rating-modal, .releaseDate {
+  font-family: 'Rokkitt';
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 50em;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
+.description-area {
+  width: 30%;
+}
+
+.overview {
+  text-align: left;
+}
+
+/* .text-display {
   height: 30em;
   box-shadow: black 3px 3px 3px;
   border-radius: 1.5em;
@@ -22,6 +54,12 @@
   background-color: rgba(220, 220, 220, 0.8);
   padding: 1em;
   text-align: left;
+} */
+
+.main-modal-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .loading-msg, .done-loading {
