@@ -15,7 +15,8 @@ class FunFacts extends React.Component {
         'Fun rhymes with `son` but not `Diamedes`.',
         'Billy-bob... or William Robert?',
         '<Redacted to prevent a time paradox>',
-        'People watch talkies. Corn watch stalkies.'
+        'People watch talkies. Corn watch stalkies.',
+        'The first feature length talkie, The Jazz Singer, was released in 1927.',
       ]
     }
   }

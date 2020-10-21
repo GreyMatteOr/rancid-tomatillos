@@ -19,8 +19,8 @@ class UserInfo extends React.Component {
     if(this.state.isLoggedIn) {
       return (
         <section>
-          <button className='logout-button' onClick={event => this.logOut(event)}>Log out</button>
-          <h1 className='userName' id='welcome-msg'>Welcome, {this.state.name}</h1>
+          <h1 className='userName' id='welcome-msg'>What's shaken', {this.state.name}?</h1>
+          <button className='logout-button' onClick={event => this.logOut(event)}>꧁Make Your Exit꧂</button>
         </section>
       )
     } else {
