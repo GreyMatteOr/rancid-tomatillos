@@ -3,6 +3,12 @@ html, body {
   height: 100%;
 }
 
+h3 {
+  font-family: 'Rokkitt';
+  color: black;
+  font-size: 1em;
+}
+
 .modal {
   position: fixed;
   padding: 1em;
@@ -51,21 +57,15 @@ html, body {
 
 }
 
-h3 {
-  font-family: 'Rokkitt';
-  color: black;
-  font-size: .8em;
-}
-
 .description-area {
   width: 30%;
+  padding-right: 1em;
   border-right: 2px solid black;
 }
 
 .overview {
   text-align: left;
 }
-
 
 .main-modal-area {
   display: flex;
@@ -81,8 +81,8 @@ h3 {
 
 .exit {
   position: fixed;
-  top: 2em;
-  right: 8em;
+  top: 3em;
+  right: 4em;
   height: 2em;
   width: auto;
 }
