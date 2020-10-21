@@ -25,7 +25,7 @@ describe( 'App', () => {
 
     userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
-    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+    userEvent.click(screen.getByRole('button', { name: '꧁Sign In꧂' }));
   })
 
   it('should be able to logout a user', () => {
@@ -35,9 +35,9 @@ describe( 'App', () => {
         <App movies={movies}/>
       </Router>
     );
-    
+
     userEvent.type(screen.getByPlaceholderText('user id'), 'tinsel@turing.io');
     userEvent.type(screen.getByPlaceholderText('password'), 'zxcvb');
-    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+    userEvent.click(screen.getByRole('button', { name: '꧁Sign In꧂' }));
   })
 });

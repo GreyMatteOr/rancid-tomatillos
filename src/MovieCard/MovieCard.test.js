@@ -36,7 +36,7 @@ describe( 'MovieCard', () => {
       </Router>
     );
 
-    userEvent.click(screen.getByRole('movie-card'));
+    userEvent.click(screen.getByTestId('movie-card'));
     expect(customHistory.entries[1].pathname).toEqual('/movieDetails/17');
   });
 
@@ -48,7 +48,7 @@ describe( 'MovieCard', () => {
       </Router>
     );
 
-    userEvent.click(screen.getByRole('movie-card'));
+    userEvent.click(screen.getByTestId('movie-card'));
     expect(screen.queryByRole('overlay')).toBeNull();
     expect(screen.queryByRole('movie-modal')).toBeNull();
   });

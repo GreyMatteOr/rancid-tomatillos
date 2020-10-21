@@ -6,23 +6,14 @@ import './Main.css';
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       movies: this.props.movies,
-      noScroll: this.props.noScroll
     }
-    this.props.setModalCallBack(this.setNoScroll);
-  }
-
-  setNoScroll = (noScroll) => {
-    this.setState( {noScroll} );
   }
 
   render() {
-    console.log('br', this.state)
-    let mainClassName = (this.state.noScroll ? '.no-scroll' : '');
     return (
-      <main className={mainClassName}>
+      <main>
         <section className='main-title-area'>
           <h1 className='main-title' id='main-title'>Vol. 22 No. 23</h1>
           <h1 className='main-title-editor' id='main-title'>EDITORS ;<br /> BRIGETTE DOELP<br />MATTHEW LANE ESQ.</h1>

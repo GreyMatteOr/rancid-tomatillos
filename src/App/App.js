@@ -12,7 +12,6 @@ class App extends React.Component{
     this.state = {
       movies: this.props.movies,
       isLoggedIn: this.props.isLoggedIn || false,
-      noScroll: false
     }
   }
 
@@ -37,12 +36,7 @@ class App extends React.Component{
     this.setState( {isLoggedIn: false, userID: null})
   }
 
-  setModalCallBack = (func) => {
-    this.modalCallBack = func;
-  }
-
   render () {
-    console.log('App.', this.state)
     return (
       <div className="App">
         <Route path='/' render={() => {
@@ -60,7 +54,6 @@ class App extends React.Component{
             <Main
               movies={this.state.movies}
               isLoggedIn={this.state.isLoggedIn}
-              setModalCallBack={this.setModalCallBack}
             />
           )}}
         />
@@ -75,7 +68,6 @@ class App extends React.Component{
                 isLoggedIn={this.state.isLoggedIn}
                 userName={this.state.userName}
                 userID={this.state.userID}
-                setNoScroll={this.modalCallBack}
               />
             </div>
           )}}

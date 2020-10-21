@@ -9,7 +9,7 @@ class Logo extends React.Component {
 
   render() {
     return (
-      <section role='logo'>
+      <section data-testid='logo'>
         <img className='logo-pic' src={rtIcon} alt='The RT Logo'/>
       </section>
     )

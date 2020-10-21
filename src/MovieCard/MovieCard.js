@@ -19,7 +19,7 @@ class MovieCard extends React.Component{
     return (
       <>
         <Link to={`/movieDetails/${this.state.movieID}`}>
-          <div className='poster' role='movie-card'>
+          <div className='poster' data-testid='movie-card'>
             <h6 className='global-rating'>{this.state.globalRating}</h6>
             <img className='poster-img' src={this.state.poster} alt={`Movie Poster for ${this.state.title}`}/>
           </div>

@@ -17,7 +17,7 @@ describe( 'Header', () => {
       render(<Header isLoggedIn={false}/>)
       expect(screen.getByPlaceholderText('user id')).toBeInTheDocument();
       expect(screen.getByPlaceholderText('password')).toBeInTheDocument();
-      expect(screen.getByRole('button', {name: "Submit"})).toBeInTheDocument();
+      expect(screen.getByRole('button', {name: "꧁Sign In꧂"})).toBeInTheDocument();
     });
 
     it( 'should display a logout form when `isLoggedIn` is `true`', () =>{
@@ -31,15 +31,15 @@ describe( 'Header', () => {
     it( 'should display a Logo', () =>{
 
       render(<Header isLoggedIn={false}/>)
-      expect(screen.getByRole('logo')).toBeInTheDocument();
+      expect(screen.getByTestId('logo')).toBeInTheDocument();
     });
   });
 
-  describe( 'SearchForm', () => {
-    it( 'should display a SearchForm', () =>{
+  describe( 'FunFacts', () => {
+    it( 'should display a FunFacts', () =>{
 
       render(<Header isLoggedIn={false}/>)
-      expect(screen.getByRole('search-form')).toBeInTheDocument();
+      expect(screen.getByTestId('fun-facts')).toBeInTheDocument();
     });
   });
 });

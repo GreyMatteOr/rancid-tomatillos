@@ -36,7 +36,6 @@ class CommentForm extends React.Component {
   }
 
   postComment = () => {
-    console.log(this.state.comment)
     request.postComment(this.movieID, this.state.comment, this.userName)
     .then( response => {
       this.setState({comment:''});

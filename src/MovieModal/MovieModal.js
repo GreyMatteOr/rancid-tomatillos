@@ -19,7 +19,6 @@ class MovieModal extends React.Component {
       isLoading: true,
       userID: this.props.userID
     };
-    this.props.setNoScroll(true);
   }
 
   componentDidMount() {
@@ -31,22 +30,18 @@ class MovieModal extends React.Component {
       .catch( err => console.log(err));
   }
 
-  componentWillUnmount() {
-    this.props.setNoScroll(false);
-  }
-
   render() {
     return (
       <div
         className='modal'
-        role='movie-modal'
+        data-testid='movie-modal'
         style={{
           backgroundImage: 'url('+this.state.backdrop_path+')',
           backgroundSize: "100% auto"
         }}
       >
         <Link to={`/`}>
-          <img className='exit' src={xToClose} role='close-modal' alt='close the pop out display' />
+          <img className='exit' src={xToClose} data-testid='close-modal' alt='close the pop out display' />
         </Link>
         <h3 className={this.state.isLoading ? 'loading-msg' : 'loading-msg hidden'}>LOADING</h3>
         <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'} data-testid="movie-details">
