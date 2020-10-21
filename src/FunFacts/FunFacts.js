@@ -24,10 +24,10 @@ class FunFacts extends React.Component {
     let fact = this.state.facts[Math.floor(Math.random() * this.state.facts.length)];
     return (
     <section className='quotearea' data-testid='fun-facts'>
-      <img className='topright' src={cornerFiligree}/>
+      <img className='topright' src={cornerFiligree} alt='framing filigree'/>
       <h3 className='title'>Fun Facts</h3>
       <p className='quote'>{fact}</p>
-      <img className='bottomleft' src={cornerFiligree}/>
+      <img className='bottomleft' src={cornerFiligree} alt='framing filigree'/>
     </section>
     )
   }
