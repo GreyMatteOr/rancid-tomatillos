@@ -1,5 +1,7 @@
 # Rancid Tomatillos
 
+A Web Development Project by [Matthew Lane](github.com/GreyMatteOr) and [Brigette Doelp](github.com/BrigetteDoelp)
+
 ## Project Overview
 
 The purpose of this project was to demonstrate fluency of the following Front-end design principles:
