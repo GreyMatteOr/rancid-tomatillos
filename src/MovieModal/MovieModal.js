@@ -17,7 +17,8 @@ class MovieModal extends React.Component {
       isLoggedIn: this.props.isLoggedIn,
       userName: this.props.userName,
       isLoading: true,
-      userID: this.props.userID
+      userID: this.props.userID,
+      backdrop: this.props.backdrop
     };
   }
 
@@ -35,10 +36,11 @@ class MovieModal extends React.Component {
       <div
         className='modal'
         role='movie-modal'
-        // style={{
-        //   backgroundImage: 'url('+this.state.backdrop_path+')',
-        //   backgroundSize: "100% auto"
-        // }}
+        style={{
+          backgroundImage: 'url('+this.state.backdrop_path+')',
+          backgroundSize: "100% auto",
+
+        }}
       >
 
         <Link to={`/`}>
@@ -50,13 +52,12 @@ class MovieModal extends React.Component {
           <h3 className='title movietitle'>{ this.state.title }</h3>
 
           <section className='under-title'>
-            <h3 className='global-rating-modal'>Average Rating: {this.roundToTenth(this.state.average_rating)}</h3>
-            <h3 className='releaseDate'>Released: {this.state.release_date}</h3>
+            <h3 className='global-rating-modal'>Average Rating ; {this.roundToTenth(this.state.average_rating)}</h3>
+            <h3 className='releaseDate'>Release Date ; {this.state.release_date}</h3>
           </section>
-
           <section className='main-modal-area'>
             <section className='description-area'>
-              <h3 className='overview'>Description: {this.state.overview}</h3>
+              <h3 className='overview'>{this.state.overview}</h3>
               <h3 className='tagline'> '{ this.state.tagline }'</h3>
             </section>
 
@@ -69,7 +70,7 @@ class MovieModal extends React.Component {
                   : <></>
                 )}
             </section>
-            <img alt='movie picture'/>
+
             <section className='etc-info'>
               <h3 className='budget'>Budget: {this.state.budget}</h3>
               <h3 className='revenue'>Revenue: {this.state.revenue}</h3>

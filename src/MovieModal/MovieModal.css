@@ -17,9 +17,11 @@ html, body {
 }
 
 .movietitle {
-  margin-top: -.5em;
+  margin-top: -.2em;
   font-family: 'Bebas Neue';
   font-size: 4em;
+  /* border-top: 2px solid black;
+  border-bottom: 2px solid black; */
 }
 
 .under-title {
@@ -45,16 +47,12 @@ html, body {
   text-align: left;
 }
 
-/* .text-display {
-  height: 30em;
-  box-shadow: black 3px 3px 3px;
-  border-radius: 1.5em;
+.text-display {
   transition: all 1.2s;
   opacity: 0;
   background-color: rgba(220, 220, 220, 0.8);
   padding: 1em;
-  text-align: left;
-} */
+}
 
 .main-modal-area {
   display: flex;
