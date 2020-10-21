@@ -1,6 +1,6 @@
 # Rancid Tomatillos
 
-A Web Development Project by [Matthew Lane](github.com/GreyMatteOr) and [Brigette Doelp](github.com/BrigetteDoelp)
+A Web Development Project by [Matthew Lane](https://github.com/GreyMatteOr) and [Brigette Doelp](https://github.com/BrigetteDoelp)
 
 ## Project Overview
 
