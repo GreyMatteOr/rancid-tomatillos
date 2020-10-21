@@ -33,4 +33,9 @@ npm start
 
 Finally, in your browser, navigate to `http://localhost:3000`.
 
+Credentials for an example user named `Tinsel` are:
+
+UserID: `tinsel@turing.io`
+Password: `zxcvb`
+
 Enjoy!
