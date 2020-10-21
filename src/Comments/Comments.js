@@ -44,7 +44,7 @@ class Comments extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-      return <h3>Loading Comments</h3>;
+      return <h3 className='comment'>Loading Comments</h3>;
     } else {
       return <>
         {this.state.comments.map( comment => this.createComment(comment))}

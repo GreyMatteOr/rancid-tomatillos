@@ -10,13 +10,13 @@
   width: 90%;
   height: 90%;
   border-radius: 1.5em;
-  box-shadow: black 3px 3px 3px;
+  box-shadow: #5d404070 3px 3px 3px;
   overflow-y: auto;
 }
 
 .text-display {
   height: 30em;
-  box-shadow: black 3px 3px 3px;
+  box-shadow: #5d404070 3px 3px 3px;
   border-radius: 1.5em;
   transition: all 1.2s;
   opacity: 0;
