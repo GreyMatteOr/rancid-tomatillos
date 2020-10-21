@@ -9,6 +9,7 @@ class MovieCard extends React.Component{
     super(props);
     this.state = {
       poster: this.props.movie['poster_path'],
+      backdrop: this.props.movie['backdrop_path'],
       title: this.props.movie['title'],
       globalRating: this.roundToTenth(this.props.movie['average_rating']),
       movieID: this.props.movie['id'],

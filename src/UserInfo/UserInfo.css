@@ -6,7 +6,36 @@
   padding-bottom: 2.7em;
   margin-top: .5em;
   width: 7em;
-  height: 2.3em;
+  height: 1.3em;
   font-size: 2em;
   font-family: 'Arvo'
+}
+
+.logout-button {
+  border-left: none;
+  border-right: none;
+  background: none;
+  width: 14em;
+  height: 2.6em;
+  font-size: 1em;
+  margin-bottom: 1em;
+  padding-top: .3em;
+  /* padding-bottom: 2.7em; */
+  font-family: 'Arvo'
+}
+
+.userName {
+  margin-top: 2em;
+  margin-left: 1em;
+  font-family: 'Arvo';
+  font-size: 1.5em;
+}
+
+.loginform {
+  visibility: hidden;
+}
+
+.secondary-font {
+  font-family: 'Arvo';
+  font-size: 1em;
 }

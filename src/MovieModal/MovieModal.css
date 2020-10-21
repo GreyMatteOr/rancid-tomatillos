@@ -1,12 +1,20 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+h3 {
+  font-family: 'Rokkitt';
+  color: black;
+  font-size: 1em;
+}
 
 .modal {
   position: fixed;
-  top: 1em;
-  z-index: 3;
-  margin: auto;
   padding: 1em;
-  background: white;
-  height: auto;
+  margin-top: 2em;
+  margin-left: 1.5em;
+  margin-right: 1em;
   width: 90%;
   height: 90%;
   border-radius: 1.5em;
@@ -22,7 +30,47 @@
   opacity: 0;
   background-color: rgba(220, 220, 220, 0.8);
   padding: 1em;
+}
+
+.movietitle {
+  margin-top: -.2em;
+  font-family: 'Bebas Neue';
+  font-size: 4em;
+  color: black;
+}
+
+.under-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.global-rating-modal, .releaseDate {
+  font-family: 'Rokkitt';
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 50em;
+  margin-left: -1em;
+  margin-right: -1em;
+  color: black;
+  font-size: .8em;
+
+}
+
+.description-area {
+  width: 30%;
+  padding-right: 1em;
+  border-right: 2px solid black;
+}
+
+.overview {
   text-align: left;
+}
+
+.main-modal-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .loading-msg, .done-loading {
@@ -33,8 +81,8 @@
 
 .exit {
   position: fixed;
-  top: 2em;
-  right: 8em;
+  top: 3em;
+  right: 4em;
   height: 2em;
   width: auto;
 }

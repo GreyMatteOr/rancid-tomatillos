@@ -17,7 +17,9 @@ class MovieModal extends React.Component {
       isLoggedIn: this.props.isLoggedIn,
       userName: this.props.userName,
       isLoading: true,
-      userID: this.props.userID
+      userID: this.props.userID,
+      backdrop: this.props.backdrop,
+      userRating: this.props.movie.userRating
     };
   }
 
@@ -31,37 +33,51 @@ class MovieModal extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading) return <h3 className='loading-msg'>LOADING</h3>;
-    else {
-      return (
-        <div
-          className='modal'
-          data-testid='movie-modal'
-          style={{
-            backgroundImage: 'url('+this.state.backdrop_path+')',
-            backgroundSize: "100% auto"
-          }}
-        >
-          <Link to={`/`}>
-            <img className='exit' src={xToClose} data-testid='close-modal' alt='close the pop out display' />
-          </Link>
-          <section className='text-display done-loading' data-testid="movie-details">
-            <h3 className='global-rating-modal'>Average Rating: {this.roundToTenth(this.state.average_rating)}</h3>
-            {(this.state.isLoggedIn
-              ? <UserRating
+    return (
+      <div
+        className='modal'
+        data-testid='movie-modal'
+        style={{
+          backgroundImage: 'url('+this.state.backdrop_path+')',
+          backgroundSize: "100% auto",
+
+        }}
+      >
+
+        <Link to={`/`}>
+          <img className='exit' src={xToClose} data-testid='close-modal' alt='close the pop out display' />
+        </Link>
+        <h3 className={this.state.isLoading ? 'loading-msg' : 'loading-msg hidden'}>LOADING</h3>
+        <section className={this.state.isLoading ? 'text-display' : 'text-display done-loading'} data-testid="movie-details">
+
+          <h3 className='title movietitle'>{ this.state.title }</h3>
+
+          <section className='under-title'>
+            <h3 className='global-rating-modal'>Average Rating ; {this.roundToTenth(this.state.average_rating)}</h3>
+            <h3 className='releaseDate'>Release Date ; {this.state.release_date}</h3>
+          </section>
+          <section className='main-modal-area'>
+            <section className='description-area'>
+              <h3 className='overview'>{this.state.overview}</h3>
+              <h3 className='tagline'> '{ this.state.tagline }'</h3>
+            </section>
+
+            <section className='rating-area'>
+              {(this.state.isLoggedIn
+                ? <UserRating
                   rating={this.state.movie.userRating}
                   movieID={this.state.movieID}
-                  userID={this.state.userID}
-                />
-              : <></>
-            )}
-            <h3 className='title'>Title: { this.state.title }</h3>
-            <h3 className='tagline'>Tagline: { this.state.tagline }</h3>
-            <h3 className='releaseDate'>Released: {this.state.release_date}</h3>
-            <h3 className='overview'>Description: {this.state.overview}</h3>
-            <h3 className='budget'>Budget: {this.state.budget}</h3>
-            <h3 className='revenue'>Revenue: {this.state.revenue}</h3>
-            <h3 className='runtime'>Runtime: {this.state.runtime}</h3>
+                  userID={this.state.userID} />
+                  : <></>
+                )}
+            </section>
+
+            <section className='etc-info'>
+              <h3 className='budget'>Budget: {this.state.budget}</h3>
+              <h3 className='revenue'>Revenue: {this.state.revenue}</h3>
+              <h3 className='runtime'>Runtime: {this.state.runtime}</h3>
+            </section>
+
           </section>
           <MovieVideos movieID={this.state.movieID} movieName={this.state.title} />
           <Comments
@@ -69,9 +85,10 @@ class MovieModal extends React.Component {
             movieID={this.state.movieID}
             userName={this.props.userName}
           />
-        </div>
-      );
-    }
+        </section>
+
+      </div>
+    );
   }
 
   roundToTenth(number) {
