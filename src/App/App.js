@@ -61,13 +61,15 @@ class App extends React.Component{
           const { id } = match.params;
           const movie = this.state.movies.find(movie => movie.id === parseInt(id));
           return (
-            <MovieModal
-              movieID={movie.id}
-              movie={movie}
-              isLoggedIn={this.state.isLoggedIn}
-              userName={this.state.userName}
-              userID={this.state.userID}
-            />
+            <div className='overlay' >
+              <MovieModal
+                movieID={movie.id}
+                movie={movie}
+                isLoggedIn={this.state.isLoggedIn}
+                userName={this.state.userName}
+                userID={this.state.userID}
+              />
+            </div>    
           )}}
         />
       </div>

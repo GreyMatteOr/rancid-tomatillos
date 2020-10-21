@@ -25,10 +25,11 @@ class Comments extends React.Component {
     let timeOfPost = new Date(comment.id);
     let isCurrent = time.isBetween(aMinuteAgo, timeOfPost, now);
     let timestamp = (isCurrent ? 'just now' : `${time.getRelativeDistance(timeOfPost)} ago`);
+    let commentBy = `${timestamp} by: ${comment.author}`;
     return (
       <div role='comment' key={comment.id}>
         <h3 className='comment'>{comment.comment}</h3>
-        <h3 className='comment-by'> {timestamp} by: {comment.author}</h3>
+        <h3 className='comment-by'>{commentBy}</h3>
       </div>
     )
   }
