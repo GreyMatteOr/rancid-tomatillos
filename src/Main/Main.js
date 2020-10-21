@@ -12,6 +12,16 @@ class Main extends React.Component {
   }
 
   render() {
+    let movieCards = this.state.movies.map(movie => {
+      return (
+        <MovieCard
+          key={movie.title}
+          movie={movie}
+          isLoggedIn={this.props.isLoggedIn}
+          userID={this.props.userID}
+        />
+      )
+    });
     return (
       <main>
         <section className='main-title-area'>
@@ -23,15 +33,7 @@ class Main extends React.Component {
         </section>
         <section id='movie-display'>
           <section className='movie-poster'>
-            {this.state.movies.map(movie => {
-              return <MovieCard
-                      key={movie.title}
-                      movie={movie}
-                      isLoggedIn={this.props.isLoggedIn}
-                      userID={this.props.userID}
-                      />
-              })
-            }
+            {movieCards}
           </section>
         </section>
       </main>
