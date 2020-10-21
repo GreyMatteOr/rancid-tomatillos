@@ -1,27 +1,32 @@
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden
 }
 
 .modal {
   position: fixed;
-  top: 1em;
   padding: 1em;
-  margin-left: 3.5em;
+  margin-top: 2em;
+  margin-left: 1.5em;
   margin-right: 1em;
-  background: white;
   width: 90%;
-  height: 90%;
+  height: 80%;
   overflow: scroll;
+}
+
+.text-display {
+  margin-top: -2.5em;
+  transition: all 1.2s;
+  opacity: 0;
+  background-color: rgba(220, 220, 220, 0.8);
+  padding: 1em;
 }
 
 .movietitle {
   margin-top: -.2em;
   font-family: 'Bebas Neue';
   font-size: 4em;
-  /* border-top: 2px solid black;
-  border-bottom: 2px solid black; */
+  color: black;
 }
 
 .under-title {
@@ -37,22 +42,26 @@ html, body {
   width: 50em;
   margin-left: -1em;
   margin-right: -1em;
+  color: black;
+  font-size: .8em;
+
+}
+
+h3 {
+  font-family: 'Rokkitt';
+  color: black;
+  font-size: .8em;
 }
 
 .description-area {
   width: 30%;
+  border-right: 2px solid black;
 }
 
 .overview {
   text-align: left;
 }
 
-.text-display {
-  transition: all 1.2s;
-  opacity: 0;
-  background-color: rgba(220, 220, 220, 0.8);
-  padding: 1em;
-}
 
 .main-modal-area {
   display: flex;

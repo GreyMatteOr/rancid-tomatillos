@@ -18,7 +18,8 @@ class MovieModal extends React.Component {
       userName: this.props.userName,
       isLoading: true,
       userID: this.props.userID,
-      backdrop: this.props.backdrop
+      backdrop: this.props.backdrop,
+      userRating: this.props.movie.userRating
     };
   }
 
