@@ -3,8 +3,8 @@ let request = {
   url2: 'https://enigmatic-everglades-10048.herokuapp.com/api/v1/',
 
   attemptLogin(email, password) {
-    // let body = JSON.stringify({email: email, password: password});
-    let body = JSON.stringify({email: 'tinsel@turing.io', password: 'zxcvb'});
+    let body = JSON.stringify({email: email, password: password});
+    // let body = JSON.stringify({email: 'tinsel@turing.io', password: 'zxcvb'});
     return fetch(request.url + '/login', {
         method: 'POST',
         body: body,
