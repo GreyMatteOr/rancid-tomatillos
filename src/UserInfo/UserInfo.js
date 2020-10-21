@@ -19,24 +19,24 @@ class UserInfo extends React.Component {
     if(this.state.isLoggedIn) {
       return (
         <section>
-          <button className='logout-button' onClick={event => this.logOut(event)}>Log out</button>
-          <h1 className='userName' id='welcome-msg'>Welcome, {this.state.name}</h1>
+          <h1 className='userName' id='welcome-msg'>What's shaken', {this.state.name}?</h1>
+          <button className='logout-button' onClick={event => this.logOut(event)}>꧁Make Your Exit꧂</button>
         </section>
       )
     } else {
       return (
         <form>
-          <h2 className='secondary-font'>Please log in!</h2>
-          <input
-            className="username"
-            type="text"
-            placeholder="user id"
-            onChange={ (event) => this.userID = event.target.value }
-          />
+        <h2 className='secondary-font'>Drop your deets, chikadee!</h2>
+        <input
+          className="username"
+          type="text"
+          placeholder="Moniker"
+          onChange={ (event) => this.userID = event.target.value }
+        />
           <input
             className="password"
             type="password"
-            placeholder="password"
+            placeholder="Pass Code"
             onChange={ (event) => this.password = event.target.value }
           />
           <button className="submit-credentials signinbutton" id="submit-credentials" onClick={event => this.logIn(event)} submit=''>꧁Sign In꧂</button>
@@ -64,6 +64,5 @@ class UserInfo extends React.Component {
 }
 
 
-//<h2 className='secondary-font'>Please log in!</h2>
 
 export default UserInfo;
