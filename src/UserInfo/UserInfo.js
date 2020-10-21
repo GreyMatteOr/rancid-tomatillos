@@ -26,6 +26,19 @@ class UserInfo extends React.Component {
     } else {
       return (
         <form>
+        <h2 className='secondary-font'>Drop your deets, chikadee!</h2>
+        <input
+          className="username"
+          type="text"
+          placeholder="Moniker"
+          onChange={ (event) => this.userID = event.target.value }
+        />
+          <input
+            className="password"
+            type="password"
+            placeholder="Pass Code"
+            onChange={ (event) => this.password = event.target.value }
+          />
           <button className="submit-credentials signinbutton" id="submit-credentials" onClick={event => this.logIn(event)} submit=''>꧁Sign In꧂</button>
           <h3 id='warning'>{ this.state.isRejected ? 'TRY AGAIN FOREVER' : '' }</h3>
         </form>
@@ -51,17 +64,5 @@ class UserInfo extends React.Component {
 }
 
 
-// <h2 className='secondary-font'>Please log in!</h2>
-// <input
-//   className="username"
-//   type="text"
-//   placeholder="user id"
-//   onChange={ (event) => this.userID = event.target.value }
-// />
-//   <input
-//     className="password"
-//     type="password"
-//     placeholder="password"
-//     onChange={ (event) => this.password = event.target.value }
-//   />
+
 export default UserInfo;
