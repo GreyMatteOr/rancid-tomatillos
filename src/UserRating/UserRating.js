@@ -54,7 +54,7 @@ class UserRating extends React.Component {
 
       <div className='rating-stuff'>
         <section className='stars-area'> {display} </section>
-        <h3 className='user-rating'> {this.state.rating} </h3>
+        <h3 className='user-rating'>You have given this talkie a {this.state.rating} star rating!</h3>
 
       </div>
     )
