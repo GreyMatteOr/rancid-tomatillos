@@ -29,7 +29,7 @@ class MovieVideos extends React.Component {
       return (
         <div
           className='videos-grid'
-          role='movie-videos'
+          data-testid='movie-videos'
         >
           {this.state.videos.map(video => {
             return <div className='video' key={video.key}>
@@ -40,7 +40,7 @@ class MovieVideos extends React.Component {
                 height="200"
                 src={`https://www.youtube.com/embed/${video.key}`}
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="acceleromedata-testidplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               >
               </iframe>

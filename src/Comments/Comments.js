@@ -3,6 +3,8 @@ import React from 'react';
 import time from '../Time.js';
 import request from '../api-requests.js';
 
+import './Comments.css';
+
 class Comments extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +29,7 @@ class Comments extends React.Component {
     let timestamp = (isCurrent ? 'just now' : `${time.getRelativeDistance(timeOfPost)} ago`);
     let commentBy = `${timestamp} by: ${comment.author}`;
     return (
-      <div role='comment' key={comment.id}>
+      <div className='comment' data-testid='comment' key={comment.id}>
         <h3 className='comment'>{comment.comment}</h3>
         <h3 className='comment-by'>{commentBy}</h3>
       </div>
@@ -42,7 +44,7 @@ class Comments extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-      return <h3>Loading Comments</h3>;
+      return <h3 className='comment'>Loading Comments</h3>;
     } else {
       return <>
         {this.state.comments.map( comment => this.createComment(comment))}

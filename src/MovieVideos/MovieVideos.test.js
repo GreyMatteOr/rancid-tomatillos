@@ -20,7 +20,7 @@ describe( 'MovieVideos', () => {
 
     render(<MovieVideos movieID='43'/>);
 
-    const videoGrid = await waitFor(() => screen.getByRole('movie-videos'));
+    const videoGrid = await waitFor(() => screen.getByTestId('movie-videos'));
 
     expect(request.getMovieVideos).toHaveBeenCalled();
     expect(request.getMovieVideos).toHaveBeenCalledWith('43');

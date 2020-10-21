@@ -7,7 +7,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: this.props.movies
+      movies: this.props.movies,
     }
   }
 

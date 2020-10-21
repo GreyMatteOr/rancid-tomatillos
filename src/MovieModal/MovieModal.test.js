@@ -75,7 +75,7 @@ describe( 'MovieModal', () => {
       </Router>
     );
 
-    userEvent.click(screen.getByRole('close-modal'));
+    userEvent.click(screen.getByTestId('close-modal'));
     expect(customHistory.entries[1].pathname).toEqual('/');
   });
 

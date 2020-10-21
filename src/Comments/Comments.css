@@ -1,0 +1,15 @@
+.comment {
+  box-shadow: #5d404070 3px 3px 3px;
+  border-radius: 1em;
+  transition: all 1.2s;
+  background-color: rgba(220, 220, 220, 0.8);
+  padding: .5em;
+  margin: 1em;
+  text-align: left;
+}
+
+.comment-by {
+  font-size: .875em;
+  padding: .4em;
+  margin: 1em;
+}

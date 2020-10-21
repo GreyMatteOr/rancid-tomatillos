@@ -10,12 +10,16 @@ html, body {
   margin-left: 1.5em;
   margin-right: 1em;
   width: 90%;
-  height: 80%;
-  overflow: scroll;
+  height: 90%;
+  border-radius: 1.5em;
+  box-shadow: #5d404070 3px 3px 3px;
+  overflow-y: auto;
 }
 
 .text-display {
-  margin-top: -2.5em;
+  height: 30em;
+  box-shadow: #5d404070 3px 3px 3px;
+  border-radius: 1.5em;
   transition: all 1.2s;
   opacity: 0;
   background-color: rgba(220, 220, 220, 0.8);
@@ -76,10 +80,10 @@ h3 {
 }
 
 .exit {
-  position: absolute;
-  top: .5em;
-  right: .5em;
-  height: 1.5em;
+  position: fixed;
+  top: 2em;
+  right: 8em;
+  height: 2em;
   width: auto;
 }
 

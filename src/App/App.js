@@ -11,29 +11,29 @@ class App extends React.Component{
     super(props);
     this.state = {
       movies: this.props.movies,
-      isLoggedIn: this.props.isLoggedIn || false
+      isLoggedIn: this.props.isLoggedIn || false,
     }
+  }
 
-    this.displayUserRatings = (userID, userName) => {
-      request.getUserRatings(userID)
-      .then( ({ratings}) => {
-        let update = this.state.movies.map( movie => {
-          let userRating = ratings.find( rating => +rating.movie_id === +movie.id );
-          movie.userRating = userRating || {rating: 0};
-          return movie;
-        });
-        this.setState({
-          movies: update,
-          isLoggedIn: true,
-          userID: userID,
-          userName: userName
-        });
+  displayUserRatings = (userID, userName) => {
+    request.getUserRatings(userID)
+    .then( ({ratings}) => {
+      let update = this.state.movies.map( movie => {
+        let userRating = ratings.find( rating => +rating.movie_id === +movie.id );
+        movie.userRating = userRating || {rating: 0};
+        return movie;
       });
-    }
+      this.setState({
+        movies: update,
+        isLoggedIn: true,
+        userID: userID,
+        userName: userName
+      });
+    });
+  }
 
-    this.hideUserRatings = () => {
-      this.setState( {isLoggedIn: false, userID: null})
-    }
+  hideUserRatings = () => {
+    this.setState( {isLoggedIn: false, userID: null})
   }
 
   render () {
@@ -69,7 +69,7 @@ class App extends React.Component{
                 userName={this.state.userName}
                 userID={this.state.userID}
               />
-            </div>    
+            </div>
           )}}
         />
       </div>

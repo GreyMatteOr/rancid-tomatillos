@@ -13,7 +13,7 @@ describe( 'UserInfo', () => {
     expect(screen.getByText('Please log in!')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('user id')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('password')).toBeInTheDocument();
-    expect(screen.getByRole('button', {name: 'Submit'})).toBeInTheDocument();
+    expect(screen.getByRole('button', {name: '꧁Sign In꧂'})).toBeInTheDocument();
   });
 
   it('should allow for a user to log out', () => {
@@ -29,14 +29,14 @@ describe( 'UserInfo', () => {
       {
         user:
         {
-          name: 'debug', 
+          name: 'debug',
           id: 1
         }
       }
     );
 
     render(<UserInfo attemptLogin={request.attemptLogin}/>);
-    userEvent.click(screen.getByRole('button', {name: 'Submit'}));
+    userEvent.click(screen.getByRole('button', {name: '꧁Sign In꧂'}));
 
     const logoutButton = await waitFor(() => screen.getByRole('button', {name: 'Log out'}));
     const welcomeMSG = await waitFor(() => screen.getByRole('heading', {name: 'Welcome, debug'}));

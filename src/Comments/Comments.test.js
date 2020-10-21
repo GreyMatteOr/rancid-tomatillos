@@ -40,7 +40,7 @@ describe('Comments', () => {
 
     await waitFor(() => screen.queryByText('Loading Comments') === null);
 
-    expect(screen.getAllByRole('comment').length).toEqual(3);
+    expect(screen.getAllByTestId('comment').length).toEqual(3);
     expect(screen.getByText('You must be logged in to comment!')).toBeInTheDocument();
 
     comments.forEach(comment => {

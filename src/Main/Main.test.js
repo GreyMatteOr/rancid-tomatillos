@@ -17,7 +17,7 @@ describe( 'Main', () => {
       </Router>
     );
 
-    expect(screen.getByText('Movies')).toBeInTheDocument();
+    expect(screen.getByText('TODAY\'S HOTTEST TALKIES')).toBeInTheDocument();
   });
 
   it( 'should display no `MovieCard`s when `movies` is empty', () => {
@@ -26,7 +26,7 @@ describe( 'Main', () => {
       <Main movies={[]}/>
     </Router>
 
-    expect(screen.queryByRole('movie-card')).toBeNull();
+    expect(screen.queryByTestId('movie-card')).toBeNull();
   });
 
   it( 'should display 1 `MovieCard` for each element in `movies`', () => {
@@ -43,6 +43,6 @@ describe( 'Main', () => {
         />
       </Router>
     )
-    expect(screen.queryAllByRole('movie-card').length).toEqual(3);
+    expect(screen.queryAllByTestId('movie-card').length).toEqual(3);
   });
 });

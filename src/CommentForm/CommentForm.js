@@ -1,5 +1,6 @@
 import React from 'react';
 import request from '../api-requests.js';
+import './CommentForm.css';
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class CommentForm extends React.Component {
   render() {
     if(this.state.isLoggedIn) {
       return (
-        <div data-testid='comment-form'>
+        <div className='comment-form' data-testid='comment-form'>
           <input
             className='comment-field'
             placeholder='Leave a comment...'
@@ -31,12 +32,11 @@ class CommentForm extends React.Component {
         </div>
       )
     } else {
-      return <h3 id='log-in-to-post'>You must be logged in to comment!</h3>
+      return <h3 className='comment' id='log-in-to-post'>You must be logged in to comment!</h3>
     }
   }
 
   postComment = () => {
-    console.log(this.state.comment)
     request.postComment(this.movieID, this.state.comment, this.userName)
     .then( response => {
       this.setState({comment:''});
